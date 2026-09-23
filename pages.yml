@@ -1,0 +1,811 @@
+# Pages CMS configuration — https://pagescms.org
+#
+# This file tells the CMS what to show you when you log in. It turns
+# content.json into labelled boxes you type into.
+#
+# You should not need to touch this file. If you want a new field to appear
+# in the CMS, it has to exist here AND in content.json — ask Claude.
+
+media:
+  input: images
+  output: images
+  categories: [image]
+
+content:
+  # ---------------------------------------------------------------- SHOWS
+  - name: shows
+    label: Shows
+    type: file
+    path: content.json
+    format: json
+    fields:
+      - name: shows
+        label: Shows
+        type: object
+        fields:
+          - name: heading
+            label: Section heading
+            type: string
+          - name: lede
+            label: Intro line
+            type: text
+          - name: useBandsintown
+            label: Use Bandsintown instead of the list below
+            type: boolean
+            description: Turn this on once your Bandsintown account has your real dates. The list below is then ignored and the site updates itself.
+          - name: bandsintownArtistName
+            label: Bandsintown artist name
+            type: string
+            description: Must match your Bandsintown artist page exactly.
+          - name: list
+            label: Show dates
+            type: object
+            description: Past dates hide themselves — no need to delete them.
+            list:
+              collapsible:
+                summary: "{fields.date} — {fields.venue}"
+            fields:
+              - name: date
+                label: Date
+                type: date
+                required: true
+                options:
+                  format: yyyy-MM-dd
+              - name: venue
+                label: Venue
+                type: string
+                required: true
+              - name: city
+                label: City
+                type: string
+                description: e.g. Lincoln, NE
+              - name: time
+                label: Start time
+                type: string
+                description: e.g. 8:00 pm
+              - name: tickets
+                label: Ticket link
+                type: string
+                description: Leave empty and tick "Free show" instead.
+              - name: free
+                label: Free show
+                type: boolean
+              - name: note
+                label: Extra note
+                type: string
+          - name: emptyMessage
+            label: Shown when there are no upcoming dates
+            type: text
+          - name: bookingLine
+            label: Booking prompt
+            type: string
+          - name: bookingLinkText
+            label: Booking link text
+            type: string
+
+  # ----------------------------------------------------------------- HOME
+  - name: home
+    label: Home page
+    type: file
+    path: content.json
+    format: json
+    fields:
+      - name: hero
+        label: Top of the page
+        type: object
+        fields:
+          - name: line1
+            label: Name, first line
+            type: string
+          - name: line2
+            label: Name, second line
+            type: string
+          - name: tagline
+            label: Tagline
+            type: text
+            description: "Use <br> where you want a line break."
+          - name: button
+            label: Button text
+            type: string
+          - name: photo
+            label: Hero photo
+            type: image
+          - name: photoAlt
+            label: Photo description
+            type: string
+            description: Read aloud to people using screen readers.
+      - name: watch
+        label: Watch
+        type: object
+        fields:
+          - name: heading
+            label: Section heading
+            type: string
+          - name: lede
+            label: Intro line
+            type: text
+          - name: videos
+            label: Videos
+            type: object
+            description: The first one is the big featured video.
+            list:
+              collapsible:
+                summary: "{fields.title}"
+            fields:
+              - name: youtubeId
+                label: YouTube ID
+                type: string
+                required: true
+                description: The part after "v=" in a YouTube link, or after "shorts/".
+              - name: title
+                label: Title
+                type: string
+              - name: caption
+                label: Caption
+                type: string
+              - name: vertical
+                label: Vertical (a Short)
+                type: boolean
+          - name: moreText
+            label: Closing line
+            type: string
+          - name: moreLinkText
+            label: Closing link text
+            type: string
+      - name: listen
+        label: Listen
+        type: object
+        fields:
+          - name: heading
+            label: Section heading
+            type: string
+          - name: album
+            label: Album
+            type: object
+            fields:
+              - name: kicker
+                label: Label above the title
+                type: string
+              - name: title
+                label: Album title
+                type: string
+              - name: photo
+                label: Album photo
+                type: image
+              - name: photoAlt
+                label: Photo description
+                type: string
+              - name: sideOne
+                label: Side one
+                type: string
+                list: true
+              - name: sideTwo
+                label: Side two
+                type: string
+                list: true
+          - name: spotifyArtistId
+            label: Spotify artist ID
+            type: string
+            description: The part after /artist/ in your Spotify link.
+      - name: photos
+        label: Photo gallery
+        type: object
+        fields:
+          - name: heading
+            label: Section heading
+            type: string
+          - name: gallery
+            label: Photos
+            type: object
+            description: "Run new photos through prep-photos.py first. The grid fills cleanly when tall counts as 2, wide counts as 2, and the total is a multiple of 3."
+            list:
+              collapsible:
+                summary: "{fields.file}"
+            fields:
+              - name: file
+                label: Photo
+                type: image
+                required: true
+              - name: alt
+                label: Photo description
+                type: string
+              - name: size
+                label: Size in the grid
+                type: select
+                options:
+                  values:
+                    - { value: "", label: "Normal" }
+                    - { value: "tall", label: "Tall" }
+                    - { value: "wide", label: "Wide" }
+          - name: moreText
+            label: Closing line
+            type: string
+          - name: moreLinkText
+            label: Closing link text
+            type: string
+      - name: landscapes
+        label: Landscape strips
+        type: object
+        description: The three wide photos between sections, top to bottom.
+        list:
+          min: 3
+          max: 3
+          collapsible:
+            summary: "{fields.file}"
+        fields:
+          - name: file
+            label: Photo
+            type: image
+          - name: alt
+            label: Photo description
+            type: string
+      - name: dishList
+        label: The Dish List
+        type: object
+        fields:
+          - name: heading
+            label: Section heading
+            type: string
+          - name: lede
+            label: Intro line
+            type: text
+          - name: townLabel
+            label: Town field label
+            type: string
+          - name: button
+            label: Button text
+            type: string
+          - name: thanks
+            label: Message after signing up
+            type: text
+          - name: error
+            label: Message if it fails
+            type: text
+          - name: notConnected
+            label: Message before the form is connected
+            type: text
+      - name: follow
+        label: Follow along
+        type: object
+        fields:
+          - name: heading
+            label: Section heading
+            type: string
+          - name: lede
+            label: Intro line
+            type: text
+          - name: items
+            label: Links
+            type: object
+            list:
+              collapsible:
+                summary: "{fields.name}"
+            fields:
+              - name: name
+                label: Name
+                type: string
+              - name: sub
+                label: Description
+                type: string
+              - name: link
+                label: Which link
+                type: select
+                description: Points at the matching address under Settings.
+                options:
+                  values: [facebook, instagram, youtube, spotify, appleMusic]
+      - name: press
+        label: Press
+        type: object
+        fields:
+          - name: heading
+            label: Section heading
+            type: string
+          - name: items
+            label: Press items
+            type: object
+            list:
+              collapsible:
+                summary: "{fields.name}"
+            fields:
+              - name: name
+                label: Publication
+                type: string
+              - name: sub
+                label: Description
+                type: string
+              - name: href
+                label: Link
+                type: string
+          - name: contactLine
+            label: Contact line
+            type: string
+
+  # ----------------------------------------------------------------- BAND
+  - name: band
+    label: The band
+    type: file
+    path: content.json
+    format: json
+    fields:
+      - name: band
+        label: The band
+        type: object
+        fields:
+          - name: heading
+            label: Section heading
+            type: string
+          - name: bio
+            label: Bio paragraphs
+            type: text
+            list: true
+            description: One box per paragraph.
+          - name: placeholder
+            label: Placeholder note
+            type: text
+            description: Shows in italics with a line down the side. Clear this box to remove it.
+          - name: members
+            label: Members
+            type: object
+            list:
+              collapsible:
+                summary: "{fields.name}"
+            fields:
+              - name: name
+                label: Name
+                type: string
+                required: true
+              - name: role
+                label: Instruments and role
+                type: string
+              - name: blurb
+                label: Blurb
+                type: text
+              - name: lead
+                label: Lead singer
+                type: boolean
+                description: Lead singers are listed first.
+              - name: photo
+                label: Photo
+                type: image
+                description: Square, roughly 400px, black and white. Leave empty to show initials instead.
+          - name: credit
+            label: Credit note
+            type: text
+
+  # -------------------------------------------------------------- BOOKING
+  - name: booking
+    label: Booking page
+    type: file
+    path: content.json
+    format: json
+    fields:
+      - name: booking
+        label: Booking page
+        type: object
+        fields:
+          - name: heading
+            label: Page heading
+            type: string
+          - name: intro
+            label: Intro paragraph
+            type: text
+          - name: goodToKnowHeading
+            label: "\"Good to know\" heading"
+            type: string
+          - name: goodToKnow
+            label: Good to know
+            type: string
+            list: true
+            description: Short facts that help people book you. Leave empty to hide the section.
+          - name: eventTypes
+            label: Event types
+            type: string
+            list: true
+            description: The choices in the dropdown.
+          - name: button
+            label: Button text
+            type: string
+          - name: thanks
+            label: Message after sending
+            type: text
+          - name: error
+            label: Message if it fails
+            type: text
+          - name: notConnected
+            label: Message before the form is connected
+            type: text
+
+  # --------------------------------------------------------- JOKE PAGES
+  - name: donalds
+    label: "Donald's Don'ts"
+    type: file
+    path: content.json
+    format: json
+    fields:
+      - name: donalds
+        label: "Donald's Don'ts"
+        type: object
+        fields:
+          - name: heading
+            label: Page heading
+            type: string
+          - name: intro
+            label: Intro paragraph
+            type: text
+          - name: list
+            label: The don'ts
+            type: text
+            list: true
+            description: Anything wrapped in [square brackets] shows as a grey placeholder.
+          - name: footerLine
+            label: Footer line
+            type: string
+
+  - name: lily
+    label: Lily Land
+    type: file
+    path: content.json
+    format: json
+    fields:
+      - name: lily
+        label: Lily Land
+        type: object
+        fields:
+          - name: presents
+            label: Line above the title
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: sub
+            label: Subtitle pieces
+            type: string
+            list: true
+          - name: cover
+            label: Cover image
+            type: image
+          - name: coverAlt
+            label: Cover description
+            type: string
+          - name: coverNote
+            label: Caption under the cover
+            type: string
+          - name: sticker
+            label: Sticker
+            type: object
+            fields:
+              - name: big
+                label: Big text
+                type: string
+              - name: small
+                label: Small text
+                type: string
+              - name: tiny
+                label: Footnote
+                type: string
+          - name: ticker
+            label: Scrolling ticker words
+            type: string
+            list: true
+          - name: issueHeading
+            label: "\"In this issue\" heading"
+            type: string
+          - name: features
+            label: Features
+            type: object
+            list:
+              collapsible:
+                summary: "{fields.title}"
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: text
+                label: Text
+                type: text
+          - name: shopHeading
+            label: Shop heading
+            type: string
+          - name: products
+            label: Products
+            type: object
+            list:
+              collapsible:
+                summary: "{fields.name}"
+            fields:
+              - name: name
+                label: Name
+                type: string
+              - name: price
+                label: Price
+                type: string
+              - name: text
+                label: Description
+                type: text
+          - name: soldOutLabel
+            label: "\"Sold out\" badge text"
+            type: string
+          - name: subscribeHeading
+            label: Subscribe heading
+            type: string
+          - name: subscribeText
+            label: Subscribe text
+            type: text
+          - name: subscribeButton
+            label: Subscribe button
+            type: string
+          - name: subscribeNote
+            label: Note under the button
+            type: text
+          - name: footer
+            label: Footer line
+            type: text
+
+  - name: namingStudy
+    label: Naming study
+    type: file
+    path: content.json
+    format: json
+    fields:
+      - name: namingStudy
+        label: Naming study
+        type: object
+        fields:
+          - name: kicker
+            label: Line above the title
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: memo
+            label: Memo rows
+            type: string
+            list: true
+            description: Each row is a pair — label, then value.
+          - name: sections
+            label: Sections
+            type: object
+            list:
+              collapsible:
+                summary: "{fields.heading}"
+            fields:
+              - name: label
+                label: Section label
+                type: string
+              - name: heading
+                label: Heading
+                type: string
+              - name: paragraphs
+                label: Paragraphs
+                type: text
+                list: true
+          - name: findings
+            label: Key findings
+            type: object
+            fields:
+              - name: label
+                label: Section label
+                type: string
+              - name: heading
+                label: Heading
+                type: string
+              - name: intro
+                label: Intro line
+                type: text
+              - name: chart
+                label: Chart bars
+                type: object
+                list:
+                  collapsible:
+                    summary: "{fields.label}"
+                fields:
+                  - name: label
+                    label: Bar label
+                    type: string
+                  - name: pct
+                    label: Bar width (percent)
+                    type: number
+                  - name: show
+                    label: Figure shown
+                    type: string
+                  - name: faint
+                    label: Faint bar
+                    type: boolean
+              - name: chartNote
+                label: Note under the chart
+                type: text
+              - name: moreIntro
+                label: "\"Additional findings\" line"
+                type: string
+              - name: bullets
+                label: Bullet points
+                type: text
+                list: true
+          - name: quotes
+            label: Participant comments
+            type: object
+            fields:
+              - name: label
+                label: Section label
+                type: string
+              - name: heading
+                label: Heading
+                type: string
+              - name: items
+                label: Quotes
+                type: object
+                list:
+                  collapsible:
+                    summary: "{fields.who}"
+                fields:
+                  - name: text
+                    label: Quote
+                    type: text
+                  - name: who
+                    label: Attribution
+                    type: string
+          - name: alternatives
+            label: Alternatives tested
+            type: object
+            fields:
+              - name: label
+                label: Section label
+                type: string
+              - name: heading
+                label: Heading
+                type: string
+              - name: columns
+                label: Column headings
+                type: string
+                list: true
+              - name: rows
+                label: Table rows
+                type: string
+                list: true
+                description: Each row is a pair — name, then result.
+              - name: recommendation
+                label: Recommendation box
+                type: text
+          - name: transcript
+            label: Transcript
+            type: object
+            fields:
+              - name: label
+                label: Section label
+                type: string
+              - name: heading
+                label: Heading
+                type: string
+              - name: lines
+                label: Lines
+                type: string
+                list: true
+                description: Each line is a pair — speaker, then what they said.
+          - name: stimulus
+            label: Stimulus image
+            type: object
+            fields:
+              - name: label
+                label: Section label
+                type: string
+              - name: heading
+                label: Heading
+                type: string
+              - name: photo
+                label: Photo
+                type: image
+              - name: alt
+                label: Photo description
+                type: string
+              - name: caption
+                label: Caption
+                type: text
+          - name: closing
+            label: Closing line
+            type: text
+          - name: backButton
+            label: Back button text
+            type: string
+          - name: footerLine
+            label: Footer line
+            type: string
+
+  # ------------------------------------------------------------- SETTINGS
+  - name: settings
+    label: Settings
+    type: file
+    path: content.json
+    format: json
+    fields:
+      - name: bandName
+        label: Band name
+        type: string
+      - name: logo
+        label: Logo
+        type: object
+        fields:
+          - name: file
+            label: Logo (dark version)
+            type: image
+            description: Shown once the page is scrolled, on the pale bar.
+          - name: reversed
+            label: Logo (light version)
+            type: image
+            description: Shown at the top of the page, on the rust bar.
+          - name: height
+            label: Height in the bar (pixels)
+            type: number
+      - name: nav
+        label: Menu
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.label}"
+        fields:
+          - name: label
+            label: Menu text
+            type: string
+          - name: href
+            label: Link
+            type: string
+      - name: contactLink
+        label: Contact link
+        type: string
+        description: Where every "get in touch" link points. Use mailto:you@example.com for an email address.
+      - name: contactLabel
+        label: Contact link text
+        type: string
+      - name: links
+        label: Social and streaming
+        type: object
+        fields:
+          - name: facebook
+            label: Facebook
+            type: string
+          - name: instagram
+            label: Instagram
+            type: string
+          - name: youtube
+            label: YouTube
+            type: string
+          - name: spotify
+            label: Spotify
+            type: string
+          - name: appleMusic
+            label: Apple Music
+            type: string
+      - name: forms
+        label: Forms
+        type: object
+        description: Paste the endpoints from your Formspree account. Until these are filled in, each form shows a "message us on Facebook" button instead.
+        fields:
+          - name: bookingEndpoint
+            label: Booking form endpoint
+            type: string
+          - name: dishListEndpoint
+            label: Dish List endpoint
+            type: string
+      - name: footer
+        label: Footer
+        type: object
+        fields:
+          - name: line
+            label: Footer line
+            type: string
+          - name: links
+            label: Footer links
+            type: object
+            list:
+              collapsible:
+                summary: "{fields.label}"
+            fields:
+              - name: label
+                label: Link text
+                type: string
+              - name: href
+                label: Link
+                type: string
+
+settings:
+  content:
+    merge: true
