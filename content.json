@@ -1,619 +1,485 @@
-{
-  "bandName": "Dorothy's Dishes",
-  "logo": {
-    "file": "logo.svg",
-    "reversed": "logo-reversed.svg",
-    "height": 34
-  },
-  "nav": [
-    {
-      "label": "Shows",
-      "href": "index.html#shows"
-    },
-    {
-      "label": "Watch",
-      "href": "index.html#watch"
-    },
-    {
-      "label": "Listen",
-      "href": "index.html#listen"
-    },
-    {
-      "label": "Band",
-      "href": "index.html#band"
-    },
-    {
-      "label": "Photos",
-      "href": "index.html#photos"
-    },
-    {
-      "label": "Booking",
-      "href": "booking.html"
-    },
-    {
-      "label": "Dish List",
-      "href": "index.html#dish-list"
-    }
-  ],
-  "contactLink": "https://www.facebook.com/profile.php?id=100063665586616",
-  "contactLabel": "message us on Facebook",
-  "links": {
-    "facebook": "https://www.facebook.com/profile.php?id=100063665586616",
-    "instagram": "https://www.instagram.com/dorothys.dishes.band",
-    "youtube": "https://www.youtube.com/@dorothydishes",
-    "spotify": "https://open.spotify.com/artist/1k8IJUBQXqQ8THBeULaQfJ",
-    "appleMusic": "https://music.apple.com/us/artist/dorothys-dishes/1610246339"
-  },
-  "forms": {
-    "bookingEndpoint": "",
-    "dishListEndpoint": ""
-  },
-  "hero": {
-    "line1": "Dorothy's",
-    "line2": "Dishes",
-    "tagline": "Americana, folk‑rock, and a touch of country<br>out of Lincoln, NE.",
-    "button": "See where we're playing",
-    "photo": "hero-live.jpg",
-    "photoAlt": "Cari McCullough singing at a microphone with two guitarists on either side"
-  },
-  "shows": {
-    "heading": "Shows",
-    "lede": "Come see us. We'll sign whatever you hand us.",
-    "useBandsintown": false,
-    "bandsintownArtistName": "Dorothy's Dishes",
-    "list": [
-      {
-        "date": "2026-10-03",
-        "venue": "Sample venue name",
-        "city": "Lincoln, NE",
-        "time": "8:00 pm",
-        "tickets": "#"
-      },
-      {
-        "date": "2026-10-17",
-        "venue": "Sample venue name",
-        "city": "Omaha, NE",
-        "time": "7:30 pm",
-        "free": true
-      }
-    ],
-    "emptyMessage": "Nothing on the calendar right now. Follow us on Facebook and you'll hear first.",
-    "bookingLine": "Booking a private event, wedding, or festival?",
-    "bookingLinkText": "Get in touch"
-  },
-  "watch": {
-    "heading": "Watch",
-    "lede": "Start here. This is the whole band, in one song.",
-    "videos": [
-      {
-        "youtubeId": "297ZBgWvNHQ",
-        "title": "Ghosts of Robber's Cave",
-        "caption": "from <em>Flatwater Revival</em>"
-      },
-      {
-        "youtubeId": "BAachNaHtfc",
-        "title": "Road Trippin' Nebraska",
-        "caption": "nearly 200 Nebraska towns and landmarks in one song"
-      },
-      {
-        "youtubeId": "aJXJp02CTMY",
-        "title": "The story behind it",
-        "caption": "a short by Coleen Williams",
-        "vertical": true
-      }
-    ],
-    "moreText": "More on our",
-    "moreLinkText": "YouTube channel"
-  },
-  "listen": {
-    "heading": "Listen",
-    "album": {
-      "kicker": "Latest album",
-      "title": "Flatwater Revival",
-      "photo": "album-diner.jpg",
-      "photoAlt": "The band in a diner booth in suits and hats, a waitress beside a chalkboard listing the Flatwater Revival tracks",
-      "sideOne": [
-        "Road Trippin'",
-        "Nebraska Girl '25",
-        "All Dressed Up",
-        "Take Me Home",
-        "I Found Grace"
-      ],
-      "sideTwo": [
-        "Walk Away",
-        "Ghosts of Robber's Cave",
-        "Road Trippin' Nebraska",
-        "Nebraska Girl",
-        "Calling Out Your Name"
-      ]
-    },
-    "spotifyArtistId": "1k8IJUBQXqQ8THBeULaQfJ"
-  },
-  "band": {
-    "heading": "The band",
-    "bio": [
-      "Dorothy's Dishes is an Americana and folk‑rock band from Lincoln, Nebraska. Formed in 2020, it's old‑school country storytelling straight from the parlor: country folk with bluegrass roots, acoustic features with smooth harmonies, and just enough upbeat rockabilly to keep your toe tappin'.",
-      "Tim McCarty formed the band and partnered with Cari McCullough as his co‑lead. Stepping into a long line of troubadour tradition, the two blend harmonies over Tim's lyrical songwriting.",
-      "The band's second album, <em>Flatwater Revival</em>, includes \"Road Trippin' Nebraska,\" a song and video that packs nearly 200 Nebraska towns and landmarks into three minutes and went further than any of them expected."
-    ],
-    "placeholder": "[Tim's telling of how it all started goes here — the first show, where the name came from, the part nobody believes.]",
-    "members": [
-      {
-        "name": "Tim McCarty",
-        "role": "Lead vocals, guitar, songwriter",
-        "blurb": "Dad joke teller. Perfect hair wielder.",
-        "lead": true,
-        "photo": "member-tim.jpg"
-      },
-      {
-        "name": "Cari McCullough",
-        "role": "Lead vocals, a mean tambourine",
-        "blurb": "Strong distaste for public speaking. Sings anyway.",
-        "lead": true,
-        "photo": "member-cari.jpg"
-      },
-      {
-        "name": "Ivan Karpyuk",
-        "role": "Piano, organ",
-        "blurb": "Complex chordal structures, a perpetual smile, pure Ukrainian charm.",
-        "photo": "member-ivan.jpg"
-      },
-      {
-        "name": "Justin Millhouse",
-        "role": "Bass guitar, social media, strategy",
-        "blurb": "Exceptional hat game. General coolness.",
-        "photo": "member-justin.jpg"
-      },
-      {
-        "name": "Karl Nelsen",
-        "role": "Drums, all things rhythmic",
-        "blurb": "Absolute chill. Studious preparation. On‑point facial expressions.",
-        "photo": "member-karl.jpg"
-      },
-      {
-        "name": "Dan Petersen",
-        "role": "Guitar, production",
-        "blurb": "Distractibility, baldness, longwinded rants.",
-        "photo": "member-dan.jpg"
-      }
-    ],
-    "credit": "<strong>Mike Truka</strong> was the drummer for the band and recorded and mixed the first two albums. A lot of what Dorothy's Dishes sounds like, it sounds like because of him."
-  },
-  "photos": {
-    "heading": "Photos",
-    "gallery": [
-      {
-        "file": "group-suits.jpg",
-        "alt": "The five of us in black suits, Cari at a vintage microphone, 'Flat Water Revival' painted on the wall",
-        "size": "tall"
-      },
-      {
-        "file": "live-duet.jpg",
-        "alt": "Tim singing at a microphone with Cari in the foreground, out of focus"
-      },
-      {
-        "file": "live-barn-4.jpg",
-        "alt": "Full band on a barn stage under timber beams and lanterns"
-      },
-      {
-        "file": "live-tim-acoustic.jpg",
-        "alt": "Tim on acoustic guitar in a plaid shirt, looking off stage",
-        "size": "tall"
-      },
-      {
-        "file": "live-barn-1.jpg",
-        "alt": "Cari singing on a barn stage seen from the back of the room"
-      },
-      {
-        "file": "live-bass.jpg",
-        "alt": "Bass player in a ball cap under stage light",
-        "size": "tall"
-      },
-      {
-        "file": "live-barn-3.jpg",
-        "alt": "Wide shot of the band on a barn stage with the crowd in silhouette"
-      },
-      {
-        "file": "live-warm-acoustic.jpg",
-        "alt": "Tim playing acoustic guitar with a bass headstock and a stage light behind him"
-      },
-      {
-        "file": "group-barn.jpg",
-        "alt": "Four band members standing on a wooden stage inside a barn"
-      },
-      {
-        "file": "live-barn-2.jpg",
-        "alt": "Guitarist singing on a barn stage with a bass player behind"
-      },
-      {
-        "file": "group-field-piano.jpg",
-        "alt": "The band in a winter field with an upright piano, Cari holding a microphone stand",
-        "size": "wide"
-      }
-    ],
-    "moreText": "More on",
-    "moreLinkText": "Instagram"
-  },
-  "landscapes": [
-    {
-      "file": "land-bison.jpg",
-      "alt": "A bison herd on a grassy ridge in western Nebraska"
-    },
-    {
-      "file": "land-riders.jpg",
-      "alt": "Two riders on horseback in tall prairie grass"
-    },
-    {
-      "file": "land-hills.jpg",
-      "alt": "Rolling prairie hills under a cloudy sky"
-    }
-  ],
-  "dishList": {
-    "heading": "The Dish List",
-    "lede": "Shows, new songs, and the occasional bad idea, straight to your inbox. A few times a year, not a few times a week.",
-    "townLabel": "Town, so we know where to play",
-    "button": "Put me on the list",
-    "thanks": "You're on the list. We'll be in touch when there's something worth saying.",
-    "error": "That didn't go through. Try again, or message us on Facebook and we'll add you by hand.",
-    "notConnected": "The list is getting set up. Message us on Facebook and we'll add you by hand."
-  },
-  "follow": {
-    "heading": "Follow along",
-    "lede": "Facebook is where we're loudest.",
-    "items": [
-      {
-        "name": "Facebook",
-        "sub": "Show announcements, live clips, the day‑to‑day",
-        "link": "facebook"
-      },
-      {
-        "name": "Instagram",
-        "sub": "@dorothys.dishes.band",
-        "link": "instagram"
-      },
-      {
-        "name": "YouTube",
-        "sub": "@dorothydishes",
-        "link": "youtube"
-      },
-      {
-        "name": "Spotify",
-        "sub": "Both albums, plus whatever's next",
-        "link": "spotify"
-      },
-      {
-        "name": "Apple Music",
-        "sub": "Same songs, different app",
-        "link": "appleMusic"
-      }
-    ]
-  },
-  "press": {
-    "heading": "Press",
-    "items": [
-      {
-        "name": "Omaha World‑Herald",
-        "sub": "Feature and interview",
-        "href": "https://omaha.com/life-entertainment/local/music/article_8b37ef58-e4ce-11ef-8910-9b6cafc0dba4.html"
-      },
-      {
-        "name": "Coleen Williams",
-        "sub": "The story behind \"Road Trippin' Nebraska\"",
-        "href": "https://youtube.com/shorts/aJXJp02CTMY"
-      }
-    ],
-    "contactLine": "Press inquiries and high‑resolution photos:"
-  },
-  "footer": {
-    "line": "Lincoln, Nebraska. Formed 2020. Still going.",
-    "links": [
-      {
-        "label": "Naming study findings",
-        "href": "focus-group.html"
-      },
-      {
-        "label": "Lily Land",
-        "href": "lily-land.html"
-      },
-      {
-        "label": "Donald's Don'ts",
-        "href": "donalds-donts.html"
-      }
-    ]
-  },
-  "booking": {
-    "heading": "Booking",
-    "intro": "Bars, weddings, festivals, fairs, backyards with a decent extension cord. Tell us the date, the place, and what kind of night it is, and we'll get back to you.",
-    "goodToKnowHeading": "Good to know",
-    "goodToKnow": [],
-    "eventTypes": [
-      "Bar or venue",
-      "Wedding",
-      "Private party",
-      "Festival or fair",
-      "Corporate event",
-      "Something else"
-    ],
-    "button": "Send it",
-    "thanks": "Got it. We'll be in touch soon.",
-    "error": "That didn't go through. Try again, or message us on Facebook.",
-    "notConnected": "The booking form is getting set up. For now, the fastest way to reach us is Facebook."
-  },
-  "donalds": {
-    "heading": "Donald's Don'ts",
-    "intro": "Donald has drafted forty‑one don'ts and is not yet satisfied with the order. Until he is, this page stays like this. He was very clear about that.",
-    "list": [
-      "[First don't goes here.]",
-      "[Second don't goes here.]",
-      "[Donald is still deciding whether this one is a don't or more of a 'please don't.']"
-    ],
-    "footerLine": "Donald has been told the page is live. He has thoughts."
-  },
-  "lily": {
-    "presents": "Dishes Ltd. presents",
-    "title": "Lily Land",
-    "sub": [
-      "Magazine",
-      "Issue 89",
-      "Fall 2026"
-    ],
-    "cover": "lily-land-cover.jpg",
-    "coverAlt": "Lily Land Magazine cover, issue 89: Lily smiling in a white headband on a pink background",
-    "sticker": {
-      "big": "150+",
-      "small": "beauty tips",
-      "tiny": "*all tambourine"
-    },
-    "coverNote": "Cover shot on location. The location was the kitchen.",
-    "ticker": [
-      "New",
-      "Fresh",
-      "Iconic",
-      "Issue 89",
-      "Lily Land",
-      "Empress approved",
-      "Dad not consulted"
-    ],
-    "issueHeading": "In this issue",
-    "features": [
-      {
-        "title": "Fashion's Empress: the exclusive sit‑down",
-        "text": "Lily answers all twelve of our questions with one word and a look. The word was \"no.\" The look was worse."
-      },
-      {
-        "title": "150+ beauty tips",
-        "text": "Tip 1: winning. Tips 2 through 150: see tip 1. Tip 151 is about hydration and was added by legal."
-      },
-      {
-        "title": "Ask Lily",
-        "text": "\"My dad tells dad jokes on stage. In front of people. Is this normal?\" Lily: \"No. Next.\""
-      },
-      {
-        "title": "The Fall Drop",
-        "text": "The Lily × Liam Collection. Sold out in minutes, largely because it was never for sale."
-      },
-      {
-        "title": "Dan: A Profile In Courage",
-        "text": "Guitarist turned saint. How one musician changed art and inspired Lily."
-      }
-    ],
-    "shopHeading": "Shop the look",
-    "products": [
-      {
-        "name": "The Empress Headband",
-        "price": "$—",
-        "text": "White. Iconic. One of one."
-      },
-      {
-        "name": "Tour Dad Flannel",
-        "price": "$0",
-        "text": "Vintage. Borrowed without asking. Will not be returned."
-      },
-      {
-        "name": "Backstage Pass",
-        "price": "Priceless",
-        "text": "Laminated by Karl. Grants access to a folding chair near the cooler."
-      }
-    ],
-    "soldOutLabel": "Sold out",
-    "subscribeHeading": "Subscribe",
-    "subscribeText": "Lily Land is delivered exclusively through the Dish List, and only when Lily feels like it.",
-    "subscribeButton": "Join the Dish List",
-    "subscribeNote": "No issues have shipped. Issue 89 is the first one. Don't ask about the other 88.",
-    "footer": "Lily Land™ is a wholly owned subsidiary of Dishes Ltd. Empress approved. Dad not consulted."
-  },
-  "namingStudy": {
-    "kicker": "Internal memorandum · Confidential · Somehow public",
-    "title": "Naming Study: Findings and Recommendation",
-    "memo": [
-      [
-        "To",
-        "Tim McCarty, Cari McCullough"
-      ],
-      [
-        "From",
-        "Platte Valley Consumer Insights, LLC"
-      ],
-      [
-        "Re",
-        "Proposed band name \"McCarty &amp; McCullough\""
-      ],
-      [
-        "Date",
-        "Sometime in 2020, before the second cup of coffee"
-      ],
-      [
-        "Status",
-        "Findings final. Client displeased."
-      ]
-    ],
-    "sections": [
-      {
-        "label": "Section 1",
-        "heading": "Executive summary",
-        "paragraphs": [
-          "The client proposed naming the band after its two lead singers. We tested this name with twelve members of the public. Eleven of them believed they were being asked about an Irish folk cover band. The twelfth asked whether this was a law firm and, when told it was not, said \"that's a shame.\"",
-          "We do not recommend proceeding with \"McCarty &amp; McCullough.\" We recommend the alternative described in Section 5, which tested as \"alliterative, but in a way that made people hungry.\""
-        ]
-      },
-      {
-        "label": "Section 2",
-        "heading": "Method",
-        "paragraphs": [
-          "Twelve participants were recruited from the parking lot of a grocery store in Lincoln, Nebraska, with the offer of a free doughnut. Each was shown the name on a plain white card and asked to describe, in their own words, what the band probably sounded like. Participants were then shown a photograph of the band (Appendix B) and asked whether it changed their answer. It did not.",
-          "One participant left before the study concluded, citing \"the fiddle thing.\" His partial responses are included in Appendix A."
-        ]
-      }
-    ],
-    "findings": {
-      "label": "Section 3",
-      "heading": "Key findings",
-      "intro": "When asked what \"McCarty &amp; McCullough\" most likely was, participants answered as follows:",
-      "chart": [
-        {
-          "label": "Irish folk cover band",
-          "pct": 87,
-          "show": "87%"
-        },
-        {
-          "label": "Irish folk band, but original songs",
-          "pct": 8,
-          "show": "8%"
-        },
-        {
-          "label": "A law firm",
-          "pct": 4,
-          "show": "4%"
-        },
-        {
-          "label": "Americana, country, folk‑rock",
-          "pct": 1,
-          "show": "0%, rounded up",
-          "faint": true
-        }
-      ],
-      "chartNote": "Percentages exceed the number of participants because one respondent answered twice, both times with \"is this a law firm.\"",
-      "moreIntro": "Additional findings:",
-      "bullets": [
-        "Nine participants asked, unprompted, whether there was a fiddle.",
-        "Six participants assumed the band played primarily on or around St. Patrick's Day.",
-        "Four participants said the name sounded like \"the credits of a movie where a horse dies.\"",
-        "Two participants could not stop saying it in an accent. They were asked to stop. They did not stop.",
-        "Zero participants guessed \"Nebraska.\""
-      ]
-    },
-    "quotes": {
-      "label": "Section 4",
-      "heading": "Selected participant comments",
-      "items": [
-        {
-          "text": "\"Is this the two guys who do the Pogues thing at the Irish pub? Because I like them. I'd go see them.\"",
-          "who": "Participant 2, on being told it was not the two guys: \"Well, now I'm disappointed.\""
-        },
-        {
-          "text": "\"I'd hire them for a wake.\"",
-          "who": "Participant 5"
-        },
-        {
-          "text": "\"Sounds like a firm that handles slip‑and‑fall cases. But only in Dublin.\"",
-          "who": "Participant 9"
-        },
-        {
-          "text": "\"There's a fiddle, right? There has to be a fiddle. Just tell me about the fiddle.\"",
-          "who": "Participant 7, repeatedly"
-        },
-        {
-          "text": "\"Wait, it's <em>country</em>? Then why don't they just say that? Call it Dorothy's Dishes or something. I'm just saying words now.\"",
-          "who": "Participant 11, who has never been thanked"
-        }
-      ]
-    },
-    "alternatives": {
-      "label": "Section 5",
-      "heading": "Alternatives tested",
-      "columns": [
-        "Name",
-        "Result"
-      ],
-      "rows": [
-        [
-          "McCarty &amp; McCullough",
-          "See Sections 1 through 4."
-        ],
-        [
-          "The McCarty‑McCullough Experience",
-          "Worse. Two participants asked if it was a podcast. Another said it sounded \"vaguely psychedelic.\""
-        ],
-        [
-          "M&amp;M",
-          "Strong recall. Legal advised against it in a tone we did not appreciate."
-        ],
-        [
-          "Two Names and a Van",
-          "Tested very well. Rejected by the band on the grounds that it is \"not a name.\""
-        ],
-        [
-          "Dorothy's Dishes",
-          "71% \"confused but curious.\" 22% \"hungry.\" 7% asked who Dorothy is and were told it's a long story, which they accepted."
-        ]
-      ],
-      "recommendation": "<strong>Recommendation.</strong> Proceed with \"Dorothy's Dishes.\" It does not describe the music. It does not describe the band. It has, however, never once made anyone ask about a fiddle, and at this point we consider that the primary success metric."
-    },
-    "transcript": {
-      "label": "Appendix A",
-      "heading": "Participant 7, partial transcript",
-      "lines": [
-        [
-          "Moderator",
-          "What kind of music do you think this band plays?"
-        ],
-        [
-          "Participant 7",
-          "Is there a fiddle?"
-        ],
-        [
-          "Moderator",
-          "Let's set the fiddle aside for a moment."
-        ],
-        [
-          "Participant 7",
-          "I can't do that."
-        ],
-        [
-          "Moderator",
-          "What if I told you there is no fiddle?"
-        ],
-        [
-          "Participant 7",
-          "Then what are the two of them doing."
-        ],
-        [
-          "Moderator",
-          "One writes the songs and plays guitar. The other sings."
-        ],
-        [
-          "Participant 7",
-          "So who's on the fiddle."
-        ],
-        [
-          "Moderator",
-          "—"
-        ],
-        [
-          "Participant 7",
-          "I'm going to go."
-        ]
-      ]
-    },
-    "stimulus": {
-      "label": "Appendix B",
-      "heading": "Stimulus image",
-      "photo": "be-kind.jpg",
-      "alt": "Sepia photograph of four band members in old-fashioned suits and hats, one woman in a prairie dress, two antique guitars",
-      "caption": "Stimulus B, shown to all participants after the name card. Did not help. If anything, participants became more certain about the fiddle."
-    },
-    "closing": "This report was prepared at considerable expense and was, in the end, agreed with.",
-    "backButton": "Back to the band",
-    "footerLine": "Not McCarty &amp; McCullough. No fiddle."
-  }
-}
+	
+bandName	"Dorothy's Dishes"
+logo	
+file	"logo.svg"
+reversed	"logo-reversed.svg"
+height	34
+nav	
+0	
+label	"Shows"
+href	"index.html#shows"
+1	
+label	"Watch"
+href	"index.html#watch"
+2	
+label	"Listen"
+href	"index.html#listen"
+3	
+label	"Band"
+href	"index.html#band"
+4	
+label	"Photos"
+href	"index.html#photos"
+5	
+label	"Booking"
+href	"booking.html"
+6	
+label	"Dish List"
+href	"index.html#dish-list"
+contactLink	"https://www.facebook.com/profile.php?id=100063665586616"
+contactLabel	"message us on Facebook"
+links	
+facebook	"https://www.facebook.com/profile.php?id=100063665586616"
+instagram	"https://www.instagram.com/dorothys.dishes.band"
+youtube	"https://www.youtube.com/@dorothydishes"
+spotify	"https://open.spotify.com/artist/1k8IJUBQXqQ8THBeULaQfJ"
+appleMusic	"https://music.apple.com/us/artist/dorothys-dishes/1610246339"
+forms	
+bookingEndpoint	""
+dishListEndpoint	""
+hero	
+line1	"Dorothy's"
+line2	"Dishes"
+tagline	"Americana, folk‑rock, and a touch of country<br>out of Lincoln, NE."
+button	"See where we're playing"
+photo	"hero-live.jpg"
+photoAlt	"Cari McCullough singing at a microphone with two guitarists on either side"
+shows	
+heading	"Shows"
+lede	"Come see us. We'll sign whatever you hand us."
+useBandsintown	false
+bandsintownArtistName	"Dorothy's Dishes"
+list	
+0	
+date	"2026-10-03"
+venue	"Sample venue name"
+city	"Lincoln, NE"
+time	"8:00 pm"
+tickets	"#"
+1	
+date	"2026-10-17"
+venue	"Sample venue name"
+city	"Omaha, NE"
+time	"7:30 pm"
+free	true
+emptyMessage	"Nothing on the calendar right now. Follow us on Facebook and you'll hear first."
+bookingLine	"Booking a private event, wedding, or festival?"
+bookingLinkText	"Get in touch"
+watch	
+heading	"Watch"
+lede	"Start here. This is the whole band, in one song."
+videos	
+0	
+youtubeId	"297ZBgWvNHQ"
+title	"Ghosts of Robber's Cave"
+caption	"from <em>Flatwater Revival</em>"
+1	
+youtubeId	"BAachNaHtfc"
+title	"Road Trippin' Nebraska"
+caption	"nearly 200 Nebraska towns and landmarks in one song"
+2	
+youtubeId	"aJXJp02CTMY"
+title	"The story behind it"
+caption	"a short by Coleen Williams"
+vertical	true
+moreText	"More on our"
+moreLinkText	"YouTube channel"
+listen	
+heading	"Listen"
+album	
+kicker	"Latest album"
+title	"Flatwater Revival"
+photo	"album-diner.jpg"
+photoAlt	"The band in a diner booth in suits and hats, a waitress beside a chalkboard listing the Flatwater Revival tracks"
+sideOne	
+0	"Road Trippin'"
+1	"Nebraska Girl '25"
+2	"All Dressed Up"
+3	"Take Me Home"
+4	"I Found Grace"
+sideTwo	
+0	"Walk Away"
+1	"Ghosts of Robber's Cave"
+2	"Road Trippin' Nebraska"
+3	"Nebraska Girl"
+4	"Calling Out Your Name"
+spotifyArtistId	"1k8IJUBQXqQ8THBeULaQfJ"
+band	
+heading	"The band"
+bio	
+0	"Dorothy's Dishes is an Americana and folk‑rock band from Lincoln, Nebraska. Formed in 2020, it's old‑school country storytelling straight from the parlor: country folk with bluegrass roots, acoustic features with smooth harmonies, and just enough upbeat rockabilly to keep your toe tappin'."
+1	"Tim McCarty formed the band and partnered with Cari McCullough as his co‑lead. Stepping into a long line of troubadour tradition, the two blend harmonies over Tim's lyrical songwriting."
+2	`The band's second album, <em>Flatwater Revival</em>, includes "Road Trippin' Nebraska," a song and video that packs nearly 200 Nebraska towns and landmarks into three minutes and went further than any of them expected.`
+placeholder	"[Tim's telling of how it all started goes here — the first show, where the name came from, the part nobody believes.]"
+members	
+0	
+name	"Tim McCarty"
+role	"Lead vocals, guitar, songwriter"
+blurb	"Dad joke teller. Perfect hair wielder."
+lead	true
+photo	"member-tim.jpg"
+1	
+name	"Cari McCullough"
+role	"Lead vocals, a mean tambourine"
+blurb	"Strong distaste for public speaking. Sings anyway."
+lead	true
+photo	"member-cari.jpg"
+2	
+name	"Ivan Karpyuk"
+role	"Piano, organ"
+blurb	"Complex chordal structures, a perpetual smile, pure Ukrainian charm."
+photo	"member-ivan.jpg"
+3	
+name	"Justin Millhouse"
+role	"Bass guitar, social media, strategy"
+blurb	"Exceptional hat game. General coolness."
+photo	"member-justin.jpg"
+4	
+name	"Karl Nelsen"
+role	"Drums, all things rhythmic"
+blurb	"Absolute chill. Studious preparation. On‑point facial expressions."
+photo	"member-karl.jpg"
+5	
+name	"Dan Petersen"
+role	"Guitar, production"
+blurb	"Distractibility, baldness, longwinded rants."
+photo	"member-dan.jpg"
+credit	""
+photos	
+heading	"Photos"
+gallery	
+0	
+file	"group-suits.jpg"
+alt	"The five of us in black suits, Cari at a vintage microphone, 'Flat Water Revival' painted on the wall"
+size	"tall"
+1	
+file	"live-duet.jpg"
+alt	"Tim singing at a microphone with Cari in the foreground, out of focus"
+2	
+file	"live-barn-4.jpg"
+alt	"Full band on a barn stage under timber beams and lanterns"
+3	
+file	"live-tim-acoustic.jpg"
+alt	"Tim on acoustic guitar in a plaid shirt, looking off stage"
+size	"tall"
+4	
+file	"live-barn-1.jpg"
+alt	"Cari singing on a barn stage seen from the back of the room"
+5	
+file	"live-bass.jpg"
+alt	"Bass player in a ball cap under stage light"
+size	"tall"
+6	
+file	"live-barn-3.jpg"
+alt	"Wide shot of the band on a barn stage with the crowd in silhouette"
+7	
+file	"live-warm-acoustic.jpg"
+alt	"Tim playing acoustic guitar with a bass headstock and a stage light behind him"
+8	
+file	"group-barn.jpg"
+alt	"Four band members standing on a wooden stage inside a barn"
+9	
+file	"live-barn-2.jpg"
+alt	"Guitarist singing on a barn stage with a bass player behind"
+10	
+file	"group-field-piano.jpg"
+alt	"The band in a winter field with an upright piano, Cari holding a microphone stand"
+size	"wide"
+moreText	"More on"
+moreLinkText	"Instagram"
+landscapes	
+0	
+file	"land-bison.jpg"
+alt	"A bison herd on a grassy ridge in western Nebraska"
+1	
+file	"land-riders.jpg"
+alt	"Two riders on horseback in tall prairie grass"
+2	
+file	"land-hills.jpg"
+alt	"Rolling prairie hills under a cloudy sky"
+dishList	
+heading	"The Dish List"
+lede	"Shows, new songs, and the occasional bad idea, straight to your inbox. A few times a year, not a few times a week."
+townLabel	"Town, so we know where to play"
+button	"Put me on the list"
+thanks	"You're on the list. We'll be in touch when there's something worth saying."
+error	"That didn't go through. Try again, or message us on Facebook and we'll add you by hand."
+notConnected	"The list is getting set up. Message us on Facebook and we'll add you by hand."
+follow	
+heading	"Follow along"
+lede	"Facebook is where we're loudest."
+items	
+0	
+name	"Facebook"
+sub	"Show announcements, live clips, the day‑to‑day"
+link	"facebook"
+1	
+name	"Instagram"
+sub	"@dorothys.dishes.band"
+link	"instagram"
+2	
+name	"YouTube"
+sub	"@dorothydishes"
+link	"youtube"
+3	
+name	"Spotify"
+sub	"Both albums, plus whatever's next"
+link	"spotify"
+4	
+name	"Apple Music"
+sub	"Same songs, different app"
+link	"appleMusic"
+press	
+heading	"Press"
+items	
+0	
+name	"Omaha World‑Herald"
+sub	"Feature and interview"
+href	"https://omaha.com/life-entertainment/local/music/article_8b37ef58-e4ce-11ef-8910-9b6cafc0dba4.html"
+1	
+name	"Coleen Williams"
+sub	`The story behind "Road Trippin' Nebraska"`
+href	"https://youtube.com/shorts/aJXJp02CTMY"
+contactLine	"Press inquiries and high‑resolution photos:"
+footer	
+line	"Lincoln, Nebraska. Formed 2020. Still going."
+links	
+0	
+label	"Naming study findings"
+href	"focus-group.html"
+1	
+label	"Lily Land"
+href	"lily-land.html"
+2	
+label	"Donald's Don'ts"
+href	"donalds-donts.html"
+booking	
+heading	"Booking"
+intro	"Bars, weddings, festivals, fairs, backyards with a decent extension cord. Tell us the date, the place, and what kind of night it is, and we'll get back to you."
+goodToKnowHeading	"Good to know"
+goodToKnow	[]
+eventTypes	
+0	"Bar or venue"
+1	"Wedding"
+2	"Private party"
+3	"Festival or fair"
+4	"Corporate event"
+5	"Something else"
+button	"Send it"
+thanks	"Got it. We'll be in touch soon."
+error	"That didn't go through. Try again, or message us on Facebook."
+notConnected	"The booking form is getting set up. For now, the fastest way to reach us is Facebook."
+donalds	
+heading	"Donald's Don'ts"
+intro	"Donald has drafted forty‑one don'ts and is not yet satisfied with the order. Until he is, this page stays like this. He was very clear about that."
+list	
+0	"[First don't goes here.]"
+1	"[Second don't goes here.]"
+2	"[Donald is still deciding whether this one is a don't or more of a 'please don't.']"
+footerLine	"Donald has been told the page is live. He has thoughts."
+lily	
+presents	"Dishes Ltd. presents"
+title	"Lily Land"
+sub	
+0	"Magazine"
+1	"Issue 89"
+2	"Fall 2026"
+cover	"lily-land-cover.jpg"
+coverAlt	"Lily Land Magazine cover, issue 89: Lily smiling in a white headband on a pink background"
+sticker	
+big	"150+"
+small	"beauty tips"
+tiny	"*all tambourine"
+coverNote	"Cover shot on location. The location was the kitchen."
+ticker	
+0	"New"
+1	"Fresh"
+2	"Iconic"
+3	"Issue 89"
+4	"Lily Land"
+5	"Empress approved"
+6	"Dad not consulted"
+issueHeading	"In this issue"
+features	
+0	
+title	"Fashion's Empress: the exclusive sit‑down"
+text	'Lily answers all twelve of our questions with one word and a look. The word was "no." The look was worse.'
+1	
+title	"150+ beauty tips"
+text	"Tip 1: winning. Tips 2 through 150: see tip 1. Tip 151 is about hydration and was added by legal."
+2	
+title	"Ask Lily"
+text	'"My dad tells dad jokes on stage. In front of people. Is this normal?" Lily: "No. Next."'
+3	
+title	"The Fall Drop"
+text	"The Lily × Liam Collection. Sold out in minutes, largely because it was never for sale."
+4	
+title	"Dan: A Profile In Courage"
+text	"Guitarist turned saint. How one musician changed art and inspired Lily."
+shopHeading	"Shop the look"
+products	
+0	
+name	"The Empress Headband"
+price	"$—"
+text	"White. Iconic. One of one."
+1	
+name	"Tour Dad Flannel"
+price	"$0"
+text	"Vintage. Borrowed without asking. Will not be returned."
+2	
+name	"Backstage Pass"
+price	"Priceless"
+text	"Laminated by Karl. Grants access to a folding chair near the cooler."
+soldOutLabel	"Sold out"
+subscribeHeading	"Subscribe"
+subscribeText	"Lily Land is delivered exclusively through the Dish List, and only when Lily feels like it."
+subscribeButton	"Join the Dish List"
+subscribeNote	"No issues have shipped. Issue 89 is the first one. Don't ask about the other 88."
+footer	"Lily Land™ is a wholly owned subsidiary of Dishes Ltd. Empress approved. Dad not consulted."
+namingStudy	
+kicker	"Internal memorandum · Confidential · Somehow public"
+title	"Naming Study: Findings and Recommendation"
+memo	
+0	
+0	"To"
+1	"Tim McCarty, Cari McCullough"
+1	
+0	"From"
+1	"Platte Valley Consumer Insights, LLC"
+2	
+0	"Re"
+1	'Proposed band name "McCarty &amp; McCullough"'
+3	
+0	"Date"
+1	"Sometime in 2020, before the second cup of coffee"
+4	
+0	"Status"
+1	"Findings final. Client displeased."
+sections	
+0	
+label	"Section 1"
+heading	"Executive summary"
+paragraphs	
+0	`The client proposed naming the band after its two lead singers. We tested this name with twelve members of the public. Eleven of them believed they were being asked about an Irish folk cover band. The twelfth asked whether this was a law firm and, when told it was not, said "that's a shame."`
+1	'We do not recommend proceeding with "McCarty &amp; McCullough." We recommend the alternative described in Section 5, which tested as "alliterative, but in a way that made people hungry."'
+1	
+label	"Section 2"
+heading	"Method"
+paragraphs	
+0	"Twelve participants were recruited from the parking lot of a grocery store in Lincoln, Nebraska, with the offer of a free doughnut. Each was shown the name on a plain white card and asked to describe, in their own words, what the band probably sounded like. Participants were then shown a photograph of the band (Appendix B) and asked whether it changed their answer. It did not."
+1	'One participant left before the study concluded, citing "the fiddle thing." His partial responses are included in Appendix A.'
+findings	
+label	"Section 3"
+heading	"Key findings"
+intro	'When asked what "McCarty &amp; McCullough" most likely was, participants answered as follows:'
+chart	
+0	
+label	"Irish folk cover band"
+pct	87
+show	"87%"
+1	
+label	"Irish folk band, but original songs"
+pct	8
+show	"8%"
+2	
+label	"A law firm"
+pct	4
+show	"4%"
+3	
+label	"Americana, country, folk‑rock"
+pct	1
+show	"0%, rounded up"
+faint	true
+chartNote	'Percentages exceed the number of participants because one respondent answered twice, both times with "is this a law firm."'
+moreIntro	"Additional findings:"
+bullets	
+0	"Nine participants asked, unprompted, whether there was a fiddle."
+1	"Six participants assumed the band played primarily on or around St. Patrick's Day."
+2	'Four participants said the name sounded like "the credits of a movie where a horse dies."'
+3	"Two participants could not stop saying it in an accent. They were asked to stop. They did not stop."
+4	'Zero participants guessed "Nebraska."'
+quotes	
+label	"Section 4"
+heading	"Selected participant comments"
+items	
+0	
+text	`"Is this the two guys who do the Pogues thing at the Irish pub? Because I like them. I'd go see them."`
+who	`Participant 2, on being told it was not the two guys: "Well, now I'm disappointed."`
+1	
+text	`"I'd hire them for a wake."`
+who	"Participant 5"
+2	
+text	'"Sounds like a firm that handles slip‑and‑fall cases. But only in Dublin."'
+who	"Participant 9"
+3	
+text	`"There's a fiddle, right? There has to be a fiddle. Just tell me about the fiddle."`
+who	"Participant 7, repeatedly"
+4	
+text	`"Wait, it's <em>country</em>? Then why don't they just say that? Call it Dorothy's Dishes or something. I'm just saying words now."`
+who	"Participant 11, who has never been thanked"
+alternatives	
+label	"Section 5"
+heading	"Alternatives tested"
+columns	
+0	"Name"
+1	"Result"
+rows	
+0	
+0	"McCarty &amp; McCullough"
+1	"See Sections 1 through 4."
+1	
+0	"The McCarty‑McCullough Experience"
+1	'Worse. Two participants asked if it was a podcast. Another said it sounded "vaguely psychedelic."'
+2	
+0	"M&amp;M"
+1	"Strong recall. Legal advised against it in a tone we did not appreciate."
+3	
+0	"Two Names and a Van"
+1	'Tested very well. Rejected by the band on the grounds that it is "not a name."'
+4	
+0	"Dorothy's Dishes"
+1	`71% "confused but curious." 22% "hungry." 7% asked who Dorothy is and were told it's a long story, which they accepted.`
+recommendation	`<strong>Recommendation.</strong> Proceed with "Dorothy's Dishes." It does not describe the music. It does not describe the band. It has, however, never once made anyone ask about a fiddle, and at this point we consider that the primary success metric.`
+transcript	
+label	"Appendix A"
+heading	"Participant 7, partial transcript"
+lines	
+0	
+0	"Moderator"
+1	"What kind of music do you think this band plays?"
+1	
+0	"Participant 7"
+1	"Is there a fiddle?"
+2	
+0	"Moderator"
+1	"Let's set the fiddle aside for a moment."
+3	
+0	"Participant 7"
+1	"I can't do that."
+4	
+0	"Moderator"
+1	"What if I told you there is no fiddle?"
+5	
+0	"Participant 7"
+1	"Then what are the two of them doing."
+6	
+0	"Moderator"
+1	"One writes the songs and plays guitar. The other sings."
+7	
+0	"Participant 7"
+1	"So who's on the fiddle."
+8	
+0	"Moderator"
+1	"—"
+9	
+0	"Participant 7"
+1	"I'm going to go."
+stimulus	
+label	"Appendix B"
+heading	"Stimulus image"
+photo	"be-kind.jpg"
+alt	"Sepia photograph of four band members in old-fashioned suits and hats, one woman in a prairie dress, two antique guitars"
+caption	"Stimulus B, shown to all participants after the name card. Did not help. If anything, participants became more certain about the fiddle."
+closing	"This report was prepared at considerable expense and was, in the end, agreed with."
+backButton	"Back to the band"
+footerLine	"Not McCarty &amp; McCullough. No fiddle."
