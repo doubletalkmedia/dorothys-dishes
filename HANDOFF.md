@@ -4,7 +4,7 @@
 Everything you need is in this repository. Nothing is tied to the conversation
 that built the site.
 
-Last verified: 17 October 2026. Repo unchanged since 22 September 2026.
+Last verified: 24 October 2026. Domain connected and link-preview placeholders filled that day.
 
 ---
 
@@ -13,10 +13,10 @@ Last verified: 17 October 2026. Repo unchanged since 22 September 2026.
 | Thing | Where | Status |
 |---|---|---|
 | Source of truth | `github.com/doubletalkmedia/dorothys-dishes` (public, branch `main`) | live |
-| Live site | `danielpetersen.doubletalkmedia.workers.dev` | live |
+| Live site | `dorothysdishes.com` and `www.dorothysdishes.com` (the old `danielpetersen.doubletalkmedia.workers.dev` address still works) | live |
 | Host | Cloudflare — a **Worker**, not Pages (Cloudflare merged the two; static sites now deploy as Workers) | connected to the repo |
 | CMS | `app.pagescms.org`, config in `.pages.yml` | configured, not yet exercised |
-| Domain | registered at **GoDaddy**, held by a band member, nameservers **not yet moved** to Cloudflare | outstanding |
+| Domain | `dorothysdishes.com`, registered at **GoDaddy** in Tim McCarty's account (Dan has access). Nameservers point at Cloudflare; both the bare domain and `www` are Custom Domains on the Worker | live |
 | Forms | Formspree | account not created |
 | Tour dates | Bandsintown | account not created |
 
@@ -169,6 +169,11 @@ it is public, and this works without any connector. Use it to see the current
 live state before changing anything. Verify your assumptions this way rather
 than trusting a stale copy.
 
+**When Claude in Chrome is connected** (the browser extension in Dan's Chrome),
+you can make the commit yourself through github.com's upload page, but only
+after he says to. Show him the change first, upload, commit, then check the
+live site.
+
 **You can read the live site** with a web fetch, but only once the URL has been
 pasted into the conversation (a permission requirement).
 
@@ -183,14 +188,12 @@ screenshot and are fine in reality. Don't report them as faults.
 
 Nothing below is broken — these are unfinished setup steps.
 
-**Domain** — registered at GoDaddy, held by a band member. Nameservers need
-pointing at Cloudflare (no transfer required; registration can stay at
-GoDaddy). Worth confirming auto-renew is on and that the site owner has
-account access.
-
-**Domain placeholders** — `REPLACE-WITH-YOUR-DOMAIN.com` appears 4× in each of
-the five HTML files, 20 occurrences total. These drive link-preview cards.
-Do this after the domain resolves, in one commit.
+**Domain renewal** — `dorothysdishes.com` expires 31 January 2027. Auto-renew
+has not been confirmed. If it lapses, the site address goes down with it.
+(The domain and the 20 link-preview placeholders were done on 24 October 2026.
+Tim also owns `dorothysdishesband.com`; it is unused and deliberately left off
+Cloudflare. Tim's other domains in that GoDaddy account are not band business.
+Leave them alone.)
 
 **Formspree** — `forms.bookingEndpoint` and `forms.dishListEndpoint` in
 content.json are both empty. Until filled, both forms show a "message us on
@@ -202,8 +205,9 @@ is 50 submissions/month.
 Order matters: enter real dates first, or the Shows section goes empty.
 `shows.bandsintownArtistName` must match the Bandsintown page exactly.
 
-**Sample shows** — two rows reading "Sample venue name" are still live.
-These should be replaced or deleted before the site is shared widely.
+**Sample shows** — two rows reading "Sample venue name" are still live, and
+both dates (3 and 17 October 2026) have now passed. They should be replaced or
+deleted before the site is shared widely.
 
 **Bio paragraph** — `band.placeholder` holds a bracketed italic note marking
 where a further paragraph will go. Clearing the field removes it.
@@ -219,6 +223,34 @@ offered; the current files are the un-evened version, pending a decision.
 
 **Lily Land mobile overflow** — ~22px of horizontal scroll on a phone, caused
 by the scrolling ticker. Pre-existing, cosmetic, one-line fix available.
+
+**Members portal (planned, not built)** — a private, members-only section of
+the site. Mockup approved 18 October 2026. It is a clickable phone prototype on
+a design canvas that is private to Dan. Decisions so far:
+- Sign-in is Cloudflare Access with an emailed one-time code: no passwords, no
+  accounts, signed in for 30 days. The repo stays public; band data lives in a
+  Cloudflare D1 database, never in the repo.
+- One person = one identity. A member can have several sign-in emails, and
+  every action is recorded under their name. Dan is the only admin and is
+  the only one who can add members or emails.
+- Every member can add and edit. A small activity line in the feed shows who
+  did what.
+- The portal is the calendar. Events (shows, rehearsals, other) carry venue,
+  map link, times, arrival notes, Bandsintown link, setlist, gear checklist,
+  who's playing and questions. Members subscribe once from Google, Apple or
+  Outlook; the sync delay of those apps is accepted.
+- Features: a band feed (posts, files, links, @mentions, event cards), a
+  Doodle-style availability poll that books the winning date, a files library
+  (newest first, sortable, searchable by name), search across posts, files and
+  events, two buttons to the Google Photos album (view / add), and Venmo pay
+  and split-a-cost links.
+- Email notifications are manual only. The poster ticks who to notify, and
+  nobody is emailed by default. Sent free through Cloudflare Email Routing to
+  verified member addresses.
+- Not possible: mirroring the band's text thread, or embedding the Google
+  Photos album (Google closed that in 2025).
+- Build order: sign-in, members, feed, events and calendar first; then polls,
+  files, search, payments.
 
 ---
 
