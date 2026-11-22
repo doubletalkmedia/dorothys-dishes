@@ -4,7 +4,7 @@
 Everything you need is in this repository. Nothing is tied to the conversation
 that built the site.
 
-Last verified: 24 October 2026. Domain connected and link-preview placeholders filled that day.
+Last verified: 21 November 2026. Accent changed to maroon, Christmas concert page added, Donald's Don'ts hidden.
 
 ---
 
@@ -49,10 +49,14 @@ styles.css          ← colours, type, layout
 index.html          main page
 booking.html        booking form
 focus-group.html    "naming study" joke page
-donalds-donts.html  joke page (stub)
-lily-land.html      not in the nav; carries a noindex tag. Leave both as-is.
+christmas.html      Christmas Celebration landing page (Dec. 5, 2026), see below
+christmas-celebration.ics  "add to calendar" file for that concert (date/time live inside it)
+donalds-donts.html  joke page (stub). Hidden: content.json `donalds.hidden` is true, so
+                    the footer link is gone and the page sends visitors home. noindex.
+lily-land.html      not in the nav; carries a noindex tag. Leave as-is.
 
-images/             32 files — band photos, landscapes, two logos, social card
+images/             36 files — band photos, landscapes, two logos, social cards,
+                    plus holiday-logo-bone.webp, christmas-band.jpg, christmas-social.jpg
 preview.py          local preview server (see §6)
 prep-photos.py      image processor (see §5)
 ```
@@ -74,13 +78,19 @@ skeleton of empty `<section>` tags that `site.js` fills.
 --sky         #9DB1BA   input placeholders only
 --umber       #2E261F   body text, menu, footer background
 --umber-soft  #5A4F44   secondary text
---rust        #9E3F2B   section headings, primary button, at-top header
+--maroon      #8A3432   section headings, primary button, at-top header
+--maroon-deep #6E2826   hover and edges
 ```
 
 Derived from a western Nebraska landscape photo. Deliberately **not** Arizona
 red — the band is from Lincoln and the brief was explicit about avoiding
 borrowed southwestern scenery. Band photos are black and white; the muted
 landscape strips are the only colour imagery.
+
+The accent was rust (#9E3F2B) until 21 November 2026, when Dan moved it to
+maroon. Options shown were #8A3432 (chosen, the warmest), #77292F and
+#64222A (deeper). The same colour is hard-coded as a fill inside `logo.svg` and
+`logo-reversed.svg`, so a future accent change must update those too.
 
 **Fonts:** Barlow Condensed (display) + Lora (body) on the main site.
 Lily Land uses League Spartan (lowercase masthead) + DM Sans (caps labels),
@@ -92,11 +102,11 @@ column the hero wordmark fills. `.74` on desktop (≥900px), `1` on mobile.
 `site.js` reads this value. Change the number, not the code. Sensible range
 .68–.80.
 
-**Header inversion:** at the top of any page the bar is rust with the light
+**Header inversion:** at the top of any page the bar is maroon with the light
 logo; past 12px of scroll it crossfades to bone with the dark logo, over
 0.22s. Driven by the `.at-top` class, toggled in `site.js`.
 
-**Two logos are mandatory.** `logo.svg` (dark) vanishes on rust; `logo-reversed.svg`
+**Two logos are mandatory.** `logo.svg` (dark) vanishes on maroon; `logo-reversed.svg`
 (light) vanishes on bone. Both are loaded and crossfaded. Never reduce to one.
 
 **Hero photo** is cropped to the top 66.4% of the original. This framing was
@@ -108,7 +118,7 @@ at every width.
 face box = 35% of frame width, face centre at 42% of frame height. If you
 re-crop one, match that or they stop looking like a set.
 
-**Social preview tags live in the raw HTML of all five pages, not in
+**Social preview tags live in the raw HTML of all six pages, not in
 content.json.** Social crawlers don't run JavaScript. Leave them there.
 
 ---
@@ -142,10 +152,10 @@ Run `python3 preview.py`. It serves the folder, opens a browser, and validates
 
 ## 7. The CMS
 
-`.pages.yml` defines eight editor screens: Shows, Home page, The band, Booking
-page, Donald's Don'ts, Lily Land, Naming study, Settings.
+`.pages.yml` defines nine editor screens: Shows, Home page, The band, Booking
+page, Christmas concert page, Donald's Don'ts, Lily Land, Naming study, Settings.
 
-**`settings.content.merge: true` is load-bearing.** All eight screens write to
+**`settings.content.merge: true` is load-bearing.** All nine screens write to
 the same `content.json`. Without merge, saving one screen deletes the keys
 owned by the others. Do not remove it.
 
@@ -205,14 +215,22 @@ is 50 submissions/month.
 Order matters: enter real dates first, or the Shows section goes empty.
 `shows.bandsintownArtistName` must match the Bandsintown page exactly.
 
-**Sample shows** — two rows reading "Sample venue name" are still live, and
-both dates (3 and 17 October 2026) have now passed. They should be replaced or
-deleted before the site is shared widely.
+**Christmas concert (Dec. 5, 2026)** — the only show listed. "Christmas" is the
+first item in the top menu; take it out of `nav` after the show. It is ticked
+"featured", so the home page shows it as a large card with a photo; it hides
+itself after the date. `christmas.html` does not hide itself: after the show,
+decide whether to unlink or retire it. Turning Bandsintown on replaces the
+whole list, featured card included. The page's design: the site palette
+turned to winter (umber night sky, bone snow, sky as frost, a pine green
+#37463A, wheat as candlelight, maroon accent), Dan's holiday logo cut out of
+its original background (its maroon background was deliberately not used),
+a softened pine-branch photo of Dan's (images/pine-bg.jpg) behind the page's
+top section and behind the home page concert card, cream "Email for tickets"
+buttons on those dark grounds,
+and Alice for the concert details, matching his Instagram reel.
 
-**Bio paragraph** — `band.placeholder` holds a bracketed italic note marking
-where a further paragraph will go. Clearing the field removes it.
-
-**Donald's Don'ts** — three bracketed placeholder lines, content not written.
+**Donald's Don'ts** — hidden (see §3). Three bracketed placeholder lines, content
+not written. Untick "Hide this page" in the CMS to bring it back.
 
 **Lily Land sticker** — the sticker footnote and the matching feature text no
 longer agree after an edit. Flagged, no decision yet.

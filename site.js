@@ -16,7 +16,7 @@ function renderSite() {
     if (S.logo && S.logo.file) {
       var lh = 'height:' + (S.logo.height || 34) + 'px';
       // Two versions are loaded and cross-faded, because the bar changes from
-      // rust to bone as you scroll and neither logo reads on both.
+      // maroon to bone as you scroll and neither logo reads on both.
       brand = '<a class="topbar-name topbar-logo" href="index.html">'
         + '<img class="logo-dark" src="' + img(S.logo.file) + '" alt="' + S.bandName + '" style="' + lh + '">'
         + (S.logo.reversed
@@ -35,7 +35,7 @@ function renderSite() {
     syncTopbar();
   }
 
-  /* The bar shows its inverted (rust) state only while the page is scrolled to
+  /* The bar shows its inverted (maroon) state only while the page is scrolled to
      the top. Listeners are registered once, and read the bar fresh each time, so
      re-rendering the header never stacks up duplicates. */
   var TOPBAR_THRESHOLD = 12, topbarQueued = false;
@@ -58,6 +58,8 @@ function renderSite() {
     var links = S.footer.links.slice();
     if (!pageIsIndex) links.unshift({ label: 'Home', href: 'index.html' });
     links = links.filter(function (l) { return !(l.href === page + '.html'); });
+    // A page switched to "hidden" in the CMS loses its footer link too.
+    if (S.donalds && S.donalds.hidden) links = links.filter(function (l) { return l.href !== 'donalds-donts.html'; });
     f.innerHTML = '<div class="wrap">' +
       '<p class="footer-name">' + S.bandName + '</p>' +
       '<p class="footer-line">' + (lineOverride || S.footer.line) + '</p>' +
@@ -96,7 +98,7 @@ function renderSite() {
       '<div class="wrap">' +
         '<h1 class="wordmark"><span>' + H.line1 + '</span><span>' + H.line2 + '</span></h1>' +
         '<p class="tagline">' + H.tagline + '</p>' +
-        '<a class="btn btn-rust" href="#shows">' + H.button + '</a>' +
+        '<a class="btn btn-maroon" href="#shows">' + H.button + '</a>' +
       '</div>' +
       '<figure class="hero-photo"><img src="' + img(H.photo) + '" alt="' + H.photoAlt + '" fetchpriority="high"></figure>';
     fitWordmark();
@@ -104,20 +106,44 @@ function renderSite() {
     // Shows
     var sh = S.shows, showsHtml;
     if (sh.useBandsintown) {
-      showsHtml = '<a class="bit-widget-initializer" data-artist-name="' + sh.bandsintownArtistName + '" data-background-color="rgba(0,0,0,0)" data-separator-color="#C7B584" data-text-color="#2E261F" data-font="Lora" data-auto-style="no" data-button-label-capitalization="capitalize" data-header-capitalization="capitalize" data-location-capitalization="capitalize" data-venue-capitalization="capitalize" data-display-local-dates="false" data-display-past-dates="false" data-display-limit="10" data-link-color="#9E3F2B" data-link-text-color="#EFEAE0" data-display-lineup="false" data-display-play-my-city="true" data-language="en"></a>';
+      showsHtml = '<a class="bit-widget-initializer" data-artist-name="' + sh.bandsintownArtistName + '" data-background-color="rgba(0,0,0,0)" data-separator-color="#C7B584" data-text-color="#2E261F" data-font="Lora" data-auto-style="no" data-button-label-capitalization="capitalize" data-header-capitalization="capitalize" data-location-capitalization="capitalize" data-venue-capitalization="capitalize" data-display-local-dates="false" data-display-past-dates="false" data-display-limit="10" data-link-color="#8A3432" data-link-text-color="#EFEAE0" data-display-lineup="false" data-display-play-my-city="true" data-language="en"></a>';
     } else {
       var today = new Date(); today.setHours(0, 0, 0, 0);
       var upcoming = sh.list.filter(function (s) { return parseDate(s.date) >= today; })
         .sort(function (a, b) { return parseDate(a.date) - parseDate(b.date); });
+      // A show ticked "featured" gets a large card above the list instead of a row.
+      // Like every other show, it disappears by itself once its date has passed.
+      var featured = upcoming.filter(function (s) { return s.featured; });
+      var rows = upcoming.filter(function (s) { return !s.featured; });
       if (upcoming.length) {
-        showsHtml = '<ol class="shows">' + upcoming.map(function (s) {
+        showsHtml = featured.map(function (s) {
           var d = parseDate(s.date);
           var mon = d.toLocaleString('en-US', { month: 'short' });
-          var action = s.tickets ? '<a class="btn btn-line" href="' + s.tickets + '">Tickets</a>' : (s.free ? '<span class="show-free">Free show</span>' : '<span></span>');
+          var dow = d.toLocaleString('en-US', { weekday: 'long' });
+          var when = dow + ', ' + d.toLocaleString('en-US', { month: 'long' }) + ' ' + d.getDate() + (s.time ? ' · ' + s.time : '');
+          var where = [s.venue, s.city].filter(Boolean).join(' · ');
+          var bg = s.background ? ' feature-show-bg" style="--bg:url(' + img(s.background) + ')' : '';
+          return '<article class="feature-show' + bg + '">' +
+            (s.photo ? '<figure class="feature-photo"><img src="' + img(s.photo) + '" alt="' + (s.photoAlt || '') + '" loading="lazy"></figure>' : '') +
+            '<div class="feature-text">' +
+              '<time class="feature-date" datetime="' + s.date + '"><span class="show-month">' + mon + '</span><span class="show-day">' + d.getDate() + '</span></time>' +
+              '<h3 class="feature-title">' + (s.title || s.venue) + '</h3>' +
+              '<p class="feature-when">' + when + '<br>' + where + '</p>' +
+              (s.blurb ? '<p class="feature-blurb">' + s.blurb + '</p>' : '') +
+              '<div class="btn-row">' +
+                (s.tickets ? '<a class="btn btn-cream" href="' + s.tickets + '">' + (s.ticketsLabel || 'Tickets') + '</a>' : '') +
+                (s.link ? '<a class="btn btn-bone" href="' + s.link + '">' + (s.linkText || 'Details') + '</a>' : '') +
+              '</div>' +
+            '</div></article>';
+        }).join('') + (rows.length ? '<ol class="shows">' + rows.map(function (s) {
+          var d = parseDate(s.date);
+          var mon = d.toLocaleString('en-US', { month: 'short' });
+          var action = s.tickets ? '<a class="btn btn-line" href="' + s.tickets + '">' + (s.ticketsLabel || 'Tickets') + '</a>' : (s.free ? '<span class="show-free">Free show</span>' : '<span></span>');
           var where = [s.city, s.time].filter(Boolean).join(' · ');
+          var venue = s.link ? '<a href="' + s.link + '">' + s.venue + '</a>' : s.venue;
           return '<li class="show"><time class="show-date" datetime="' + s.date + '"><span class="show-month">' + mon + '</span><span class="show-day">' + d.getDate() + '</span></time>' +
-            '<div class="show-where"><strong>' + s.venue + '</strong><span>' + where + (s.note ? ' · ' + s.note : '') + '</span></div>' + action + '</li>';
-        }).join('') + '</ol>';
+            '<div class="show-where"><strong>' + venue + '</strong><span>' + where + (s.note ? ' · ' + s.note : '') + '</span></div>' + action + '</li>';
+        }).join('') + '</ol>' : '');
       } else {
         showsHtml = '<p class="shows-empty">' + sh.emptyMessage.replace('Facebook', '<a href="' + S.links.facebook + '">Facebook</a>') + '</p>';
       }
@@ -163,7 +189,9 @@ function renderSite() {
     var initials = function (n) { return n.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase(); };
     var members = B.members.slice().sort(function (a, b) { return (b.lead ? 1 : 0) - (a.lead ? 1 : 0); });
     $('band').innerHTML = '<div class="wrap"><h2>' + B.heading + '</h2>' +
-      '<div class="bio">' + B.bio.map(function (p) { return '<p>' + p + '</p>'; }).join('') + (B.placeholder ? '<p class="placeholder">' + B.placeholder + '</p>' : '') + '</div>' +
+      '<div class="bio">' + B.bio.map(function (p) { return '<p>' + p + '</p>'; }).join('') +
+        (B.quote && B.quote.text ? '<blockquote class="bio-quote"><p>“' + B.quote.text + '”</p>' + (B.quote.who ? '<cite>' + B.quote.who + '</cite>' : '') + '</blockquote>' : '') +
+        (B.placeholder ? '<p class="placeholder">' + B.placeholder + '</p>' : '') + '</div>' +
       '<ul class="members">' + members.map(function (m) {
         var mark = m.photo ? '<img class="member-mark" src="' + img(m.photo) + '" alt="">' : '<span class="member-mark" aria-hidden="true">' + initials(m.name) + '</span>';
         return '<li class="member' + (m.lead ? ' member-lead' : '') + '">' + mark + '<div><h3>' + m.name + '</h3><p class="member-role">' + m.role + '</p><p>' + m.blurb + '</p></div></li>';
@@ -296,11 +324,53 @@ function renderSite() {
     $('lily-foot').innerHTML = '<p>' + L.footer + '<br><a href="index.html">Back to ' + S.bandName + '</a></p>';
   }
 
+  /* ---------- christmas concert ---------- */
+  function renderChristmas() {
+    var C = S.christmas;
+    var mapBtn = C.mapLink ? '<a href="' + C.mapLink + '">' + C.address + '</a>' : C.address;
+    $('xmas-hero').innerHTML =
+      '<div class="snow" aria-hidden="true"></div>' +
+      '<div class="wrap xmas-hero-inner">' +
+        '<h1 class="xmas-logo"><img src="' + img('holiday-logo-bone.webp') + '" alt="' + S.bandName + '" width="1200" height="688"></h1>' +
+        '<p class="xmas-title">' + C.title + '</p>' +
+        '<div class="xmas-when">' +
+          '<div class="xmas-tile" aria-hidden="true"><span class="xmas-tile-day">' + C.day + '</span><span class="xmas-tile-month">' + C.month + '</span></div>' +
+          '<p class="xmas-info"><strong>' + C.dateLine + '</strong>' + C.time + ' · ' + C.venue + '<br>' + mapBtn + '</p>' +
+        '</div>' +
+        '<div class="btn-row">' +
+          '<a class="btn btn-cream" href="' + C.ticketsLink + '">' + C.ticketsButton + '</a>' +
+          (C.calendarFile ? '<a class="btn btn-bone" href="' + C.calendarFile + '" download>' + C.calendarButton + '</a>' : '') +
+        '</div>' +
+      '</div>';
+    $('xmas-night').innerHTML = '<div class="wrap xmas-night">' +
+      '<figure class="xmas-photo"><img src="' + img(C.photo) + '" alt="' + C.photoAlt + '" loading="lazy"></figure>' +
+      '<div class="xmas-night-text"><h2>' + C.nightHeading + '</h2><p class="xmas-lead">' + C.intro + '</p>' +
+        C.nightText.map(function (p) { return '<p>' + p + '</p>'; }).join('') + '</div></div>';
+    $('xmas-guests').innerHTML = '<div class="wrap">' +
+      '<p class="xmas-kicker">' + C.guestsLabel + '</p><p class="xmas-guest">' + C.guestName + '</p>' +
+      '<a class="btn btn-bone" href="' + C.guestLink + '">' + C.guestLinkText + '</a></div>';
+    $('xmas-tickets').innerHTML = '<div class="wrap"><div class="ticket">' +
+      '<div class="ticket-main"><h2>' + C.ticketsHeading + '</h2><p>' + C.ticketsText + ' <a href="' + C.ticketsLink + '">' + C.email + '</a>.</p>' +
+        (C.ticketsNote ? '<p class="ticket-note">' + C.ticketsNote + '</p>' : '') +
+        '<a class="btn btn-solid" href="' + C.ticketsLink + '">' + C.ticketsButton + '</a></div>' +
+      '<dl class="ticket-stub">' +
+        '<dt>When</dt><dd>' + C.dateLine + '<br>' + C.time + '</dd>' +
+        '<dt>Where</dt><dd>' + C.venue + '<br>' + mapBtn + '</dd>' +
+        '<dt>With</dt><dd>' + C.guestName + '</dd>' +
+      '</dl></div>' +
+      '<a class="btn btn-line xmas-back" href="index.html">' + C.backButton + '</a></div>';
+  }
+
   /* ---------- go ---------- */
   renderTopbar();
   if (page === 'index') { renderIndex(); renderFooter(); }
   if (page === 'booking') { renderBooking(); renderFooter(); }
-  if (page === 'donalds-donts') { renderDonalds(); renderFooter(S.donalds.footerLine); }
+  if (page === 'christmas') { renderChristmas(); renderFooter(); }
+  if (page === 'donalds-donts') {
+    // Hidden from the CMS: send anyone who lands here back to the home page.
+    if (S.donalds.hidden) { location.replace('index.html'); return; }
+    renderDonalds(); renderFooter(S.donalds.footerLine);
+  }
   if (page === 'focus-group') { renderNamingStudy(); renderFooter(S.namingStudy.footerLine); }
   if (page === 'lily-land') { renderLily(); }
 }
@@ -328,7 +398,7 @@ function renderSite() {
         '<div style="max-width:34rem;margin:14vh auto;padding:0 1.5rem;'
         + 'font:1rem/1.6 Lora,Georgia,serif;color:#2E261F">'
         + '<h1 style="font:800 2rem/1 \'Barlow Condensed\',Arial,sans-serif;'
-        + 'text-transform:uppercase;color:#9E3F2B;margin:0 0 1rem">'
+        + 'text-transform:uppercase;color:#8A3432;margin:0 0 1rem">'
         + (local ? 'Open this through the preview server' : 'Content failed to load')
         + '</h1><p>'
         + (local

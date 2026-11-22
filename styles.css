@@ -1,6 +1,7 @@
 /* Dorothy's Dishes — site styles
    Palette pulled from a western Nebraska photo: bleached grass, sage, a washed-out sky,
-   the dark umber of a bison herd. Rust is used for exactly one button. */
+   the dark umber of a bison herd. The accent is a barn-paint maroon (it was rust
+   until November 2026). It marks section headings, the top bar and the main button. */
 
 :root{
   --bone:#EFEAE0;
@@ -10,7 +11,8 @@
   --sky:#9DB1BA;
   --umber:#2E261F;
   --umber-soft:#5A4F44;
-  --rust:#9E3F2B;
+  --maroon:#8A3432;      /* accent. Also tried: #77292F (cooler), #64222A (deeper) */
+  --maroon-deep:#6E2826; /* hover and edges */
 
   --display:"Barlow Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif;
   --text:"Lora",Georgia,"Times New Roman",serif;
@@ -35,7 +37,7 @@ body{
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration-color:var(--wheat);text-decoration-thickness:2px;text-underline-offset:3px}
 a:hover{text-decoration-color:var(--umber)}
-:focus-visible{outline:3px solid var(--rust);outline-offset:3px}
+:focus-visible{outline:3px solid var(--maroon);outline-offset:3px}
 h1,h2,h3{font-family:var(--display);line-height:.95;margin:0}
 p{margin:0 0 1em}
 em{font-style:italic}
@@ -58,11 +60,11 @@ em{font-style:italic}
   border-bottom:1px solid var(--wheat);
   transition:background-color .22s ease, border-bottom-color .22s ease, color .22s ease;
 }
-/* Sitting at the very top of the page the bar inverts: rust ground, bone type.
+/* Sitting at the very top of the page the bar inverts: maroon ground, bone type.
    It fades back to the light bar as soon as you scroll (class toggled in site.js). */
 .topbar.at-top{
-  background-color:var(--rust);
-  border-bottom-color:#873420;
+  background-color:var(--maroon);
+  border-bottom-color:var(--maroon-deep);
   color:var(--bone);
 }
 .topbar.at-top .topnav a:hover{border-bottom-color:var(--bone)}
@@ -130,7 +132,7 @@ h2{
   font-size:clamp(2.6rem,6.5vw,4.75rem);
   font-weight:800;text-transform:uppercase;letter-spacing:-.01em;
   margin-bottom:.35em;
-  color:var(--rust); /* section headers in burnt orange; the menu stays umber */
+  color:var(--maroon); /* section headers in maroon; the menu stays umber */
 }
 .lede{font-size:clamp(1.1rem,1.6vw,1.3rem);max-width:44ch;color:var(--umber-soft);margin-bottom:2.2rem}
 .aside{margin-top:2rem;color:var(--umber-soft);max-width:60ch}
@@ -153,12 +155,18 @@ h2{
   text-decoration:none;cursor:pointer;
   background:transparent;color:var(--umber);
 }
-.btn-rust{background:var(--rust);border-color:var(--rust);color:var(--bone)}
-.btn-rust:hover{background:#873420;border-color:#873420}
+.btn-maroon{background:var(--maroon);border-color:var(--maroon);color:var(--bone)}
+.btn-maroon:hover{background:var(--maroon-deep);border-color:var(--maroon-deep)}
 .btn-solid{background:var(--umber);color:var(--bone)}
 .btn-solid:hover{background:#1e1813}
 .btn-line:hover{background:var(--umber);color:var(--bone)}
 .btn-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+/* light outline button for dark grounds (featured show card, Christmas page) */
+.btn-bone{border-color:var(--bone);color:var(--bone)}
+.btn-bone:hover{background:var(--bone);color:var(--umber)}
+/* solid cream button with dark type: the main action on a dark or photo ground */
+.btn-cream{background:var(--bone);border-color:var(--bone);color:var(--umber)}
+.btn-cream:hover{background:#FFFFFF;border-color:#FFFFFF}
 
 /* ---------- shows ---------- */
 .shows{list-style:none;margin:0;padding:0;border-top:2px solid var(--umber)}
@@ -173,6 +181,34 @@ h2{
 .show-where strong{font-family:var(--display);font-weight:600;font-size:1.45rem;line-height:1.1}
 .show-where span{color:var(--umber-soft)}
 .show-free{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--sage);font-size:1.05rem}
+/* a show ticked "featured" in the CMS: a large dark card above the list */
+.feature-show{
+  display:grid;grid-template-columns:1fr;
+  background:var(--umber);color:var(--bone);
+  margin:0 0 2.5rem;
+}
+@media (min-width:820px){.feature-show{grid-template-columns:1.05fr 1fr}}
+.feature-photo{margin:0;min-height:100%}
+.feature-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:5/4}
+.feature-text{padding:clamp(1.5rem,4vw,2.75rem);display:flex;flex-direction:column;align-items:flex-start}
+.feature-date{font-family:var(--display);line-height:1;display:flex;flex-direction:column;margin-bottom:1rem}
+.feature-date .show-month{color:var(--wheat)}
+.feature-date .show-day{color:var(--bone)}
+.feature-title{font-size:clamp(2.3rem,5vw,3.6rem);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:.9;margin-bottom:.9rem}
+.feature-when{font-size:1.1rem;line-height:1.45;color:var(--bone)}
+.feature-blurb{color:#D9D1C1;max-width:40ch}
+.feature-text .btn-row{margin-top:.6rem}
+.feature-show a:focus-visible{outline-color:var(--bone)}
+/* with a background photo: the photo fills the card, darkened for reading,
+   and the band photo sits on it in a cream frame */
+.feature-show-bg{
+  background:linear-gradient(rgba(12,15,11,.5),rgba(12,15,11,.62)), var(--bg) center/cover no-repeat, var(--umber);
+  padding:clamp(.9rem,2.5vw,1.75rem);gap:0 clamp(.5rem,2vw,1.5rem);align-items:center;
+}
+.feature-show-bg .feature-photo{min-height:0}
+.feature-show-bg .feature-photo img{border:5px solid var(--bone);height:auto}
+.feature-show-bg .feature-text{padding:clamp(1.25rem,3vw,2rem) clamp(.5rem,2vw,1.25rem)}
+.feature-show-bg .feature-blurb{color:#E4DDCF}
 @media (max-width:520px){
   .show{grid-template-columns:4.4rem 1fr;}
   .show .btn,.show-free{grid-column:2}
@@ -208,6 +244,10 @@ h2{
 /* ---------- band ---------- */
 .bio{max-width:64ch;margin-bottom:3rem}
 .bio p{font-size:1.1rem}
+.bio-quote{margin:2rem 0 0;padding-left:1.1rem;border-left:3px solid var(--maroon)}
+.bio-quote p{font-style:italic;font-size:1.2rem;line-height:1.55;margin-bottom:.5rem}
+.bio-quote cite{display:block;font-style:normal;font-family:var(--display);font-weight:600;font-size:1.05rem;text-transform:uppercase;letter-spacing:.08em;color:var(--sage)}
+.bio-quote cite::before{content:"\2014\00A0"}
 .placeholder{
   color:var(--sage);font-style:italic;
   border-left:3px solid var(--wheat);padding-left:1rem;
@@ -251,7 +291,7 @@ h2{
   border-radius:0;padding:.55rem 0;
 }
 .dish-form input::placeholder{color:var(--sky)}
-.dish-form input:focus{outline:none;border-bottom-color:var(--rust)}
+.dish-form input:focus{outline:none;border-bottom-color:var(--maroon)}
 .dish-form .btn{margin-top:1.8rem;align-self:flex-start}
 .hp{position:absolute;left:-9999px}
 .form-note{margin-top:1rem;color:var(--umber-soft);min-height:1.5em}

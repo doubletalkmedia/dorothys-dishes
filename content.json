@@ -7,6 +7,10 @@
   },
   "nav": [
     {
+      "label": "Christmas",
+      "href": "christmas.html"
+    },
+    {
       "label": "Shows",
       "href": "index.html#shows"
     },
@@ -63,18 +67,20 @@
     "bandsintownArtistName": "Dorothy's Dishes",
     "list": [
       {
-        "date": "2026-10-03",
-        "venue": "Sample venue name",
+        "date": "2026-12-05",
+        "venue": "Latvian Hall",
         "city": "Lincoln, NE",
-        "time": "8:00 pm",
-        "tickets": "#"
-      },
-      {
-        "date": "2026-10-17",
-        "venue": "Sample venue name",
-        "city": "Omaha, NE",
-        "time": "7:30 pm",
-        "free": true
+        "time": "7:00 pm",
+        "tickets": "mailto:dorothysdishes@gmail.com?subject=Christmas%20Celebration%20tickets%20(Dec.%205)&body=Name%3A%20%0ANumber%20of%20tickets%3A%20%0A",
+        "ticketsLabel": "Email for tickets",
+        "featured": true,
+        "title": "Christmas Celebration",
+        "blurb": "90 minutes of Dorothy's Dishes originals, Christmas classics, and holiday cheer, with special guests Jules and the Gents. Tickets by pre-sale only.",
+        "link": "christmas.html",
+        "linkText": "Concert details",
+        "photo": "christmas-band.jpg",
+        "photoAlt": "The six members of Dorothy's Dishes standing together in a field",
+        "background": "pine-bg.jpg"
       }
     ],
     "emptyMessage": "Nothing on the calendar right now. Follow us on Facebook and you'll hear first.",
@@ -136,7 +142,11 @@
       "Tim McCarty formed the band and partnered with Cari McCullough as his co‑lead. Stepping into a long line of troubadour tradition, the two blend harmonies over Tim's lyrical songwriting.",
       "The band's second album, <em>Flatwater Revival</em>, includes \"Road Trippin' Nebraska,\" a song and video that packs nearly 200 Nebraska towns and landmarks into three minutes and went further than any of them expected."
     ],
-    "placeholder": "[Tim's telling of how it all started goes here — the first show, where the name came from, the part nobody believes.]",
+    "placeholder": "",
+    "quote": {
+      "text": "Not since Cher has a musical act moved me in such a deep and emotional way. Tim and Cari's voices moved me to teary reflection with their songs about caves.",
+      "who": "Ronald Reagan"
+    },
     "members": [
       {
         "name": "Tim McCarty",
@@ -340,6 +350,7 @@
     "notConnected": "The booking form is getting set up. For now, the fastest way to reach us is Facebook."
   },
   "donalds": {
+    "hidden": true,
     "heading": "Donald's Don'ts",
     "intro": "Donald has drafted forty‑one don'ts and is not yet satisfied with the order. Until he is, this page stays like this. He was very clear about that.",
     "list": [
@@ -615,5 +626,36 @@
     "closing": "This report was prepared at considerable expense and was, in the end, agreed with.",
     "backButton": "Back to the band",
     "footerLine": "Not McCarty &amp; McCullough. No fiddle."
+  },
+  "christmas": {
+    "title": "Christmas Celebration",
+    "day": "5",
+    "month": "December",
+    "dateLine": "Saturday, December 5, 2026",
+    "time": "7:00 pm",
+    "venue": "Latvian Hall",
+    "address": "3302 C St, Lincoln, NE",
+    "mapLink": "https://www.google.com/maps/search/?api=1&query=Latvian%20Hall%2C%203302%20C%20St%2C%20Lincoln%2C%20NE",
+    "intro": "90 minutes of Dorothy's Dishes originals, Christmas classics, and holiday cheer.",
+    "ticketsButton": "Email for tickets",
+    "ticketsLink": "mailto:dorothysdishes@gmail.com?subject=Christmas%20Celebration%20tickets%20(Dec.%205)&body=Name%3A%20%0ANumber%20of%20tickets%3A%20%0A",
+    "calendarButton": "Add to my calendar",
+    "calendarFile": "christmas-celebration.ics",
+    "nightHeading": "The night",
+    "nightText": [
+      "An evening of Dorothy's Dishes originals alongside the Christmas songs everybody knows, played the way we play everything: harmonies up front and a little toe-tappin' underneath.",
+      "Bring a friend who could use some holiday cheer!"
+    ],
+    "photo": "christmas-band.jpg",
+    "photoAlt": "The six members of Dorothy's Dishes standing together in a field",
+    "guestsLabel": "With special guests",
+    "guestName": "Jules and the Gents",
+    "guestLink": "https://www.instagram.com/jules_andthegents/",
+    "guestLinkText": "Follow them on Instagram",
+    "ticketsHeading": "Tickets",
+    "ticketsText": "Tickets are pre-sale only, by email. Send your name and how many tickets you'd like to",
+    "email": "dorothysdishes@gmail.com",
+    "ticketsNote": "",
+    "backButton": "Back to the band"
   }
 }

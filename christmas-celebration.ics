@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dorothy's Dishes//Christmas Celebration//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:christmas-celebration-2026@dorothysdishes.com
+DTSTAMP:20261121T230000Z
+DTSTART:20261206T010000Z
+DTEND:20261206T030000Z
+SUMMARY:Dorothy's Dishes Christmas Celebration
+LOCATION:Latvian Hall\, 3302 C St\, Lincoln\, NE
+DESCRIPTION:90 minutes of Dorothy's Dishes originals\, Christmas classics\, and holiday cheer\, with special guests Jules and the Gents. Starts 7:00 pm. Tickets by pre-sale only: dorothysdishes@gmail.com. https://dorothysdishes.com/christmas.html
+URL:https://dorothysdishes.com/christmas.html
+END:VEVENT
+END:VCALENDAR

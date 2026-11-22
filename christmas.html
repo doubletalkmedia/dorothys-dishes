@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Christmas Celebration — Dorothy's Dishes at the Latvian Hall, Lincoln — Dec. 5</title>
+<meta name="description" content="Dorothy's Dishes Christmas Celebration: Saturday, December 5, 7:00 pm at the Latvian Hall, 3302 C St, Lincoln. 90 minutes of originals, Christmas classics, and holiday cheer, with special guests Jules and the Gents. Tickets by pre-sale only.">
+<!-- ===== LINK PREVIEWS (how this page looks when shared in a text or on Facebook) =====
+     Domain is dorothysdishes.com. If it ever changes, find-and-replace it in all 6 .html files.
+     Social crawlers don't run JavaScript, so these must stay here in the raw HTML. -->
+<meta property="og:url" content="https://dorothysdishes.com/christmas.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dorothy's Dishes">
+<meta property="og:title" content="Dorothy's Dishes Christmas Celebration — Dec. 5, Latvian Hall, Lincoln">
+<meta property="og:description" content="90 minutes of originals, Christmas classics, and holiday cheer, with special guests Jules and the Gents. Saturday, December 5, 7:00 pm. Tickets by pre-sale only.">
+<meta property="og:image" content="https://dorothysdishes.com/images/christmas-social.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dorothy's Dishes Christmas Celebration, December 5 at the Latvian Hall in Lincoln">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dorothy's Dishes Christmas Celebration — Dec. 5, Latvian Hall, Lincoln">
+<meta name="twitter:description" content="90 minutes of originals, Christmas classics, and holiday cheer, with special guests Jules and the Gents. Tickets by pre-sale only.">
+<meta name="twitter:image" content="https://dorothysdishes.com/images/christmas-social.jpg">
+<!-- ===== end link previews ===== -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23EFEAE0'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='Impact,Arial Narrow,sans-serif' font-size='40' font-weight='700' fill='%232E261F'%3EDD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alice&family=Barlow+Condensed:wght@500;600;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/holiday-logo-bone.webp">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Christmas Celebration page.
+     Same palette as the rest of the site, turned to winter: umber becomes the
+     night sky, bone becomes snow, sky becomes frost, sage deepens to pine,
+     wheat becomes candlelight, and maroon stays the accent. The top section sits
+     on a pine-branch photo. The holiday logo
+     is the band's own artwork; Alice carries the concert details. */
+  .xmas{
+    --night:#191411;
+    --pine:#37463A;
+    --frost:var(--sky);
+    --candle:var(--wheat);
+    --serif:"Alice",Georgia,"Times New Roman",serif;
+    flex:1 0 auto;
+  }
+
+  /* ----- hero: winter night over the prairie ----- */
+  .xmas-hero{
+    position:relative;overflow:hidden;text-align:center;color:var(--bone);
+    padding:clamp(3rem,8vw,5.5rem) 0 clamp(6rem,12vw,8.5rem);
+    /* Dan's pine-branch photo, softened and darkened so the type reads over it,
+       with a faint candlelight glow behind the logo */
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 34%, rgba(199,181,132,.14), rgba(199,181,132,0) 72%),
+      linear-gradient(180deg, rgba(10,13,10,.62) 0%, rgba(10,13,10,.48) 45%, rgba(10,13,10,.66) 100%),
+      url("images/pine-bg.jpg") center/cover no-repeat,
+      var(--night);
+  }
+  /* snow-covered hills along the bottom edge, melting into the page */
+  .xmas-hero::after{
+    content:"";position:absolute;left:0;right:0;bottom:-1px;height:clamp(44px,7vw,80px);
+    background:var(--bone);
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80' preserveAspectRatio='none'%3E%3Cpath d='M0 52 C120 30 230 26 360 40 C470 52 560 62 690 46 C820 30 930 18 1050 34 C1120 43 1165 48 1200 44 L1200 80 L0 80Z'/%3E%3C/svg%3E") center bottom/100% 100% no-repeat;
+            mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 80' preserveAspectRatio='none'%3E%3Cpath d='M0 52 C120 30 230 26 360 40 C470 52 560 62 690 46 C820 30 930 18 1050 34 C1120 43 1165 48 1200 44 L1200 80 L0 80Z'/%3E%3C/svg%3E") center bottom/100% 100% no-repeat;
+  }
+  /* falling snow: six dot layers on different tile sizes, so no grid shows */
+  .snow{
+    position:absolute;inset:0;pointer-events:none;opacity:.8;
+    background-image:
+      radial-gradient(1.6px 1.6px at 20px 30px, #fff 60%, transparent 62%),
+      radial-gradient(1.2px 1.2px at 140px 90px, rgba(255,255,255,.8) 60%, transparent 62%),
+      radial-gradient(2px 2px at 90px 160px, rgba(255,255,255,.85) 60%, transparent 62%),
+      radial-gradient(1.4px 1.4px at 210px 220px, #fff 60%, transparent 62%),
+      radial-gradient(2.4px 2.4px at 60px 260px, rgba(255,255,255,.55) 60%, transparent 62%),
+      radial-gradient(1.2px 1.2px at 250px 20px, rgba(255,255,255,.7) 60%, transparent 62%);
+    background-size:283px 307px, 331px 263px, 397px 359px, 241px 293px, 463px 421px, 353px 389px;
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .snow{animation:snowfall 40s linear infinite}
+    @keyframes snowfall{
+      from{background-position:0 0, 0 0, 0 0, 0 0, 0 0, 0 0}
+      to{background-position:30px 614px, -20px 526px, 40px 718px, -10px 586px, 25px 842px, -30px 778px}
+    }
+  }
+  .xmas-hero-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
+  .xmas-logo{margin:0;width:min(600px,88%)}
+  .xmas-logo img{width:100%;height:auto}
+  .xmas-title{
+    font-family:var(--serif);text-transform:uppercase;letter-spacing:.2em;
+    font-size:clamp(1.15rem,3.2vw,1.9rem);line-height:1.2;color:var(--frost);
+    margin:clamp(1.2rem,3vw,1.8rem) 0 clamp(1.6rem,4vw,2.4rem);
+  }
+  .xmas-when{display:flex;align-items:center;justify-content:center;gap:1.25rem;text-align:left;flex-wrap:wrap}
+  .xmas-tile{
+    flex:0 0 auto;display:flex;flex-direction:column;align-items:center;
+    border:2px solid rgba(239,234,224,.55);border-radius:14px;padding:.55rem .55rem .5rem;min-width:7.2rem;
+    font-family:var(--serif);
+  }
+  .xmas-tile-day{font-size:3.4rem;line-height:1;margin:.1rem 0 .35rem}
+  .xmas-tile-month{background:var(--bone);color:var(--umber);border-radius:999px;padding:.2rem .8rem;font-size:1rem}
+  .xmas-info{font-family:var(--serif);font-size:1.15rem;line-height:1.5;margin:0;color:#DDD5C6}
+  .xmas-info strong{display:block;font-weight:400;font-size:1.45rem;color:var(--bone)}
+  .xmas-info a{text-decoration-color:var(--candle)}
+  .xmas-info a:hover{text-decoration-color:var(--bone)}
+  .xmas-hero .btn-row{justify-content:center;margin-top:2.2rem}
+  .xmas-hero a:focus-visible{outline-color:var(--bone)}
+  @media (max-width:520px){
+    .xmas-when{flex-direction:column;text-align:center;gap:1rem}
+  }
+
+  /* ----- the night ----- */
+  .xmas-night{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
+  @media (min-width:820px){.xmas-night{grid-template-columns:1.1fr 1fr;gap:3.5rem}}
+  .xmas-photo{margin:0}
+  .xmas-photo img{width:100%;height:auto}
+  .xmas-lead{font-family:var(--serif);font-size:clamp(1.35rem,2.4vw,1.75rem);line-height:1.35;color:var(--umber)}
+  .xmas-night-text p{max-width:46ch}
+
+  /* ----- special guests: a pine-green band ----- */
+  .xmas-guests{background:var(--pine);color:var(--bone);text-align:center;padding:clamp(3rem,7vw,5rem) 0}
+  .xmas-kicker{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:1.1rem;color:var(--frost);margin-bottom:.4rem}
+  .xmas-guest{font-family:var(--serif);font-size:clamp(2.2rem,6vw,3.8rem);line-height:1.05;margin:0 0 1.6rem}
+  .xmas-guests a:focus-visible{outline-color:var(--bone)}
+
+  /* ----- tickets: a ticket with a tear-off stub ----- */
+  .ticket{
+    display:grid;grid-template-columns:1fr;
+    background:var(--bone-deep);border:2px solid var(--umber);
+  }
+  @media (min-width:760px){.ticket{grid-template-columns:1.5fr 1fr}}
+  .ticket-main{padding:clamp(1.5rem,4vw,2.5rem)}
+  .ticket-main p{max-width:44ch;font-size:1.1rem}
+  .ticket-main h2{margin-bottom:.4em}
+  .ticket-note{color:var(--umber-soft)}
+  .ticket-main .btn{margin-top:.6rem}
+  .ticket-stub{
+    margin:0;padding:clamp(1.5rem,4vw,2.5rem);position:relative;
+    border-top:2px dashed var(--umber-soft);
+    display:grid;grid-template-columns:auto 1fr;gap:.9rem 1.2rem;align-content:center;
+  }
+  @media (min-width:760px){.ticket-stub{border-top:0;border-left:2px dashed var(--umber-soft)}}
+  .ticket-stub dt{font-family:var(--display);font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--sage);padding-top:.15rem}
+  .ticket-stub dd{margin:0;font-family:var(--serif);font-size:1.15rem;line-height:1.4}
+  .xmas-back{margin-top:2.5rem}
+</style>
+</head>
+<body data-page="christmas">
+<!-- All the words on this page live in content.json under "christmas", or in the CMS. -->
+<a class="skip" href="#xmas-tickets">Skip to tickets</a>
+<header class="topbar" id="topbar"></header>
+<main class="xmas">
+  <section class="xmas-hero" id="xmas-hero"></section>
+  <section class="section" id="xmas-night"></section>
+  <section class="xmas-guests" id="xmas-guests"></section>
+  <section class="section" id="xmas-tickets"></section>
+</main>
+<footer class="footer" id="footer"></footer>
+<noscript><p class="wrap">This site needs JavaScript turned on to show its content.</p></noscript>
+<script src="site.js"></script>
+</body>
+</html>
