@@ -70,9 +70,41 @@ content:
               - name: free
                 label: Free show
                 type: boolean
+              - name: ticketsLabel
+                label: Ticket button text
+                type: string
+                description: e.g. Tickets, or Email for tickets. Leave empty for "Tickets".
               - name: note
                 label: Extra note
                 type: string
+              - name: featured
+                label: Feature this show
+                type: boolean
+                description: Shows it as a large card with a photo above the list. It disappears by itself after the date.
+              - name: title
+                label: Feature title
+                type: string
+                description: Only used when featured, e.g. Christmas Celebration.
+              - name: blurb
+                label: Feature description
+                type: text
+              - name: link
+                label: Details page link
+                type: string
+                description: e.g. christmas.html
+              - name: linkText
+                label: Details button text
+                type: string
+              - name: photo
+                label: Feature photo
+                type: image
+              - name: photoAlt
+                label: Feature photo description
+                type: string
+              - name: background
+                label: Feature background photo
+                type: image
+                description: Optional. Fills the card behind the text and photo, darkened so the words stay readable.
           - name: emptyMessage
             label: Shown when there are no upcoming dates
             type: text
@@ -339,6 +371,17 @@ content:
             type: text
             list: true
             description: One box per paragraph.
+          - name: quote
+            label: Quote under the bio
+            type: object
+            fields:
+              - name: text
+                label: Quote
+                type: text
+                description: Quotation marks are added for you.
+              - name: who
+                label: Who said it
+                type: string
           - name: placeholder
             label: Placeholder note
             type: text
@@ -415,6 +458,44 @@ content:
             label: Message before the form is connected
             type: text
 
+  # ------------------------------------------------------ CHRISTMAS PAGE
+  - name: christmas
+    label: Christmas concert page
+    type: file
+    path: content.json
+    format: json
+    fields:
+      - name: christmas
+        label: Christmas concert page (christmas.html)
+        type: object
+        fields:
+          - { name: title, label: Concert name, type: string }
+          - { name: day, label: Day number on the date tile, type: string }
+          - { name: month, label: Month on the date tile, type: string }
+          - { name: dateLine, label: Full date, type: string }
+          - { name: time, label: Start time, type: string }
+          - { name: venue, label: Venue, type: string }
+          - { name: address, label: Address, type: string }
+          - { name: mapLink, label: Map link, type: string }
+          - { name: intro, label: One-line description, type: text }
+          - { name: ticketsButton, label: Ticket button text, type: string }
+          - { name: ticketsLink, label: Ticket button link, type: string, description: "A mailto: link opens an email already addressed and titled." }
+          - { name: calendarButton, label: Calendar button text, type: string }
+          - { name: calendarFile, label: Calendar file, type: string, description: "The .ics file in the site folder. Its date and time are set inside that file, not here." }
+          - { name: nightHeading, label: "\"The night\" heading", type: string }
+          - { name: nightText, label: "\"The night\" paragraphs", type: text, list: true }
+          - { name: photo, label: Photo, type: image }
+          - { name: photoAlt, label: Photo description, type: string }
+          - { name: guestsLabel, label: Line above the guests, type: string }
+          - { name: guestName, label: Special guests, type: string }
+          - { name: guestLink, label: Guests' link, type: string }
+          - { name: guestLinkText, label: Guests' button text, type: string }
+          - { name: ticketsHeading, label: Tickets heading, type: string }
+          - { name: ticketsText, label: Tickets paragraph, type: text, description: The email address is added after this sentence. }
+          - { name: email, label: Ticket email address, type: string }
+          - { name: ticketsNote, label: Note under the tickets paragraph, type: text }
+          - { name: backButton, label: Back button text, type: string }
+
   # --------------------------------------------------------- JOKE PAGES
   - name: donalds
     label: "Donald's Don'ts"
@@ -426,6 +507,10 @@ content:
         label: "Donald's Don'ts"
         type: object
         fields:
+          - name: hidden
+            label: Hide this page
+            type: boolean
+            description: While on, the footer link is gone and anyone visiting the page is sent to the home page.
           - name: heading
             label: Page heading
             type: string
@@ -731,7 +816,7 @@ content:
           - name: reversed
             label: Logo (light version)
             type: image
-            description: Shown at the top of the page, on the rust bar.
+            description: Shown at the top of the page, on the maroon bar.
           - name: height
             label: Height in the bar (pixels)
             type: number
