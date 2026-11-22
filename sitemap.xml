@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The pages search engines should know about. Lily Land and Donald's Don'ts
+     are left out on purpose (both are hidden). Add a line for any new page. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://dorothysdishes.com/</loc></url>
+  <url><loc>https://dorothysdishes.com/christmas</loc></url>
+  <url><loc>https://dorothysdishes.com/booking</loc></url>
+  <url><loc>https://dorothysdishes.com/focus-group</loc></url>
+</urlset>

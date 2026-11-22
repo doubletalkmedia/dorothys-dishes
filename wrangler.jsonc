@@ -1,0 +1,10 @@
+// Cloudflare settings for the website (a Worker that only serves files).
+// The build step (npm run build) writes the finished pages into dist/,
+// and only dist/ is published.
+{
+  "name": "danielpetersen",
+  "compatibility_date": "2026-11-19",
+  "assets": {
+    "directory": "./dist"
+  }
+}

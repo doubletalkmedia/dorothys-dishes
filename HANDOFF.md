@@ -20,8 +20,18 @@ Last verified: 21 November 2026. Accent changed to maroon, Christmas concert pag
 | Forms | Formspree | account not created |
 | Tour dates | Bandsintown | account not created |
 
-**Deploy loop:** commit to `main` → Cloudflare rebuilds automatically → live in ~1 minute.
-There is no build step. The files are served as-is.
+**Deploy loop:** commit to `main` → Cloudflare runs `npm run build` → publishes `dist/` →
+live in ~1–2 minutes.
+
+**Build step (added 22 November 2026).** `build.mjs` runs `site.js` once on
+Cloudflare's side (using jsdom) and writes finished, filled-in pages to `dist/`,
+so search engines and link-preview tools see real text instead of empty
+sections. In the browser `site.js` still runs as before, so date-based things
+(past shows hiding, the home button) stay live. Editing is unchanged: content.json
+or the CMS. Only `dist/` is published, so notes, CMS settings and Python helpers
+are no longer served publicly. If a build fails (for example a typo in
+content.json), Cloudflare keeps serving the previous version. Cloudflare
+settings live in `wrangler.jsonc` and the worker's Build settings.
 
 ---
 
@@ -54,6 +64,12 @@ christmas-celebration.ics  "add to calendar" file for that concert (date/time li
 donalds-donts.html  joke page (stub). Hidden: content.json `donalds.hidden` is true, so
                     the footer link is gone and the page sends visitors home. noindex.
 lily-land.html      not in the nav; carries a noindex tag. Leave as-is.
+
+build.mjs           writes finished pages into dist/ (see §1); package.json pins jsdom
+wrangler.jsonc      Cloudflare settings: publish dist/
+robots.txt          points search engines at sitemap.xml (Cloudflare adds its own
+                    AI-crawler rules on top)
+sitemap.xml         pages for search engines; add any new public page here
 
 images/             36 files — band photos, landscapes, two logos, social cards,
                     plus holiday-logo-bone.webp, christmas-band.jpg, christmas-social.jpg

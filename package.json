@@ -1,0 +1,12 @@
+{
+  "name": "dorothys-dishes",
+  "private": true,
+  "description": "Builds the finished pages Cloudflare serves. See build.mjs.",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "30.1.3"
+  }
+}
