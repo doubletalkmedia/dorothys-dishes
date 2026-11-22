@@ -216,7 +216,10 @@ Order matters: enter real dates first, or the Shows section goes empty.
 `shows.bandsintownArtistName` must match the Bandsintown page exactly.
 
 **Christmas concert (Dec. 5, 2026)** — the only show listed. "Christmas" is the
-first item in the top menu; take it out of `nav` after the show. It is ticked
+first item in the top menu; take it out of `nav` after the show. While it is upcoming,
+the home page's "See where we're playing" button also goes to christmas.html
+(any upcoming featured show with a details link takes the button); it returns to
+#shows by itself after the date. It is ticked
 "featured", so the home page shows it as a large card with a photo; it hides
 itself after the date. `christmas.html` does not hide itself: after the show,
 decide whether to unlink or retire it. Turning Bandsintown on replaces the

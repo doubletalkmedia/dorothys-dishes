@@ -98,7 +98,7 @@ function renderSite() {
       '<div class="wrap">' +
         '<h1 class="wordmark"><span>' + H.line1 + '</span><span>' + H.line2 + '</span></h1>' +
         '<p class="tagline">' + H.tagline + '</p>' +
-        '<a class="btn btn-maroon" href="#shows">' + H.button + '</a>' +
+        '<a class="btn btn-maroon" href="' + heroLink() + '">' + H.button + '</a>' +
       '</div>' +
       '<figure class="hero-photo"><img src="' + img(H.photo) + '" alt="' + H.photoAlt + '" fetchpriority="high"></figure>';
     fitWordmark();
@@ -230,6 +230,17 @@ function renderSite() {
   }
 
   function parseDate(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+
+  /* The hero button normally jumps to the Shows section. While a featured show
+     with a details page is coming up, it goes to that page instead, and it goes
+     back to #shows by itself the day after the show. */
+  function heroLink() {
+    if (S.shows.useBandsintown) return '#shows';
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var next = S.shows.list.filter(function (s) { return s.featured && s.link && parseDate(s.date) >= today; })
+      .sort(function (a, b) { return parseDate(a.date) - parseDate(b.date); })[0];
+    return next ? next.link : '#shows';
+  }
 
   function fitWordmark() {
     var el = document.querySelector('.wordmark'); if (!el) return;
