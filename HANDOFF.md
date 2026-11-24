@@ -70,6 +70,9 @@ wrangler.jsonc      Cloudflare settings: publish dist/
 robots.txt          points search engines at sitemap.xml (Cloudflare adds its own
                     AI-crawler rules on top)
 sitemap.xml         pages for search engines; add any new public page here
+favicon.ico         DD monogram icon (16/32/48 px); images/icon-192.png and
+                    images/apple-touch-icon.png are the larger versions. Lily Land
+                    keeps its own pink "LL" icon on purpose.
 
 images/             36 files — band photos, landscapes, two logos, social cards,
                     plus holiday-logo-bone.webp, christmas-band.jpg, christmas-social.jpg

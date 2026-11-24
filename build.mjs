@@ -20,7 +20,7 @@ const OUT = 'dist';
 
 // What gets published. Everything else in the repo (notes, CMS settings,
 // Python helpers, this script) stays out of the public site.
-const COPY = ['site.js', 'styles.css', 'content.json', 'images', 'robots.txt', 'sitemap.xml'];
+const COPY = ['site.js', 'styles.css', 'content.json', 'images', 'robots.txt', 'sitemap.xml', 'favicon.ico'];
 const extraFiles = readdirSync('.').filter((f) => f.endsWith('.ics'));
 const pages = readdirSync('.').filter((f) => f.endsWith('.html'));
 
