@@ -84,7 +84,7 @@
       }
     ],
     "emptyMessage": "Nothing on the calendar right now. Follow us on Facebook and you'll hear first.",
-    "bookingLine": "Booking a private event, wedding, or festival?",
+    "bookingLine": "Booking a private event or festival?",
     "bookingLinkText": "Get in touch"
   },
   "watch": {
@@ -333,15 +333,14 @@
   },
   "booking": {
     "heading": "Booking",
-    "intro": "Bars, weddings, festivals, fairs, backyards with a decent extension cord. Tell us the date, the place, and what kind of night it is, and we'll get back to you.",
+    "intro": "Festivals, fairs, backyards with a decent extension cord, and bars. Tell us the date, the place, and what kind of night it is, and we'll get back to you.",
     "goodToKnowHeading": "Good to know",
     "goodToKnow": [],
     "eventTypes": [
-      "Bar or venue",
-      "Wedding",
       "Private party",
       "Festival or fair",
       "Corporate event",
+      "Bar or venue",
       "Something else"
     ],
     "button": "Send it",

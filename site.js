@@ -214,6 +214,7 @@ function renderSite() {
       '<label for="dl-name">Name</label><input id="dl-name" name="name" type="text" autocomplete="name">' +
       '<label for="dl-email">Email</label><input id="dl-email" name="email" type="email" autocomplete="email" required>' +
       '<label for="dl-town">' + D.townLabel + '</label><input id="dl-town" name="town" type="text" placeholder="Lincoln, NE" autocomplete="address-level2">' +
+      '<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">' +
       '<button class="btn btn-solid" type="submit">' + D.button + '</button><p class="form-note" role="status" aria-live="polite"></p></form></div>';
     wireForm($('dish-list').querySelector('form'), S.forms.dishListEndpoint, D);
 
@@ -280,6 +281,7 @@ function renderSite() {
       '<div><label for="b-where">Where</label><input id="b-where" name="location" type="text" placeholder="Venue, town"></div></div>' +
       '<label for="b-budget">Budget, if you have one in mind</label><input id="b-budget" name="budget" type="text">' +
       '<label for="b-details">Tell us about it</label><textarea id="b-details" name="details" rows="5" placeholder="Crowd size, how long you need us, indoors or out, whether there\'s a PA — anything that helps."></textarea>' +
+      '<input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">' +
       '<button class="btn btn-solid" type="submit">' + K.button + '</button><p class="form-note" role="status" aria-live="polite"></p></form>';
     wireForm($('booking').querySelector('form'), S.forms.bookingEndpoint, K);
   }

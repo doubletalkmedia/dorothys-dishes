@@ -17,7 +17,7 @@ Last verified: 21 November 2026. Accent changed to maroon, Christmas concert pag
 | Host | Cloudflare — a **Worker**, not Pages (Cloudflare merged the two; static sites now deploy as Workers) | connected to the repo |
 | CMS | `app.pagescms.org`, config in `.pages.yml` | configured, not yet exercised |
 | Domain | `dorothysdishes.com`, registered at **GoDaddy** in Tim McCarty's account (Dan has access). Nameservers point at Cloudflare; both the bare domain and `www` are Custom Domains on the Worker | live |
-| Forms | Formspree | account not created |
+| Forms | Formspree | connected 24 Nov 2026; forms "Booking requests" and "Dish List sign-ups"; notifications go to doubletalkmedia@gmail.com (private, never shown on the site); spam: Formspree's Formshield filter plus a hidden `_gotcha` trap field in both forms (site.js). Free tier: 50 submissions/month |
 | Tour dates | Bandsintown | account not created |
 
 **Deploy loop:** commit to `main` → Cloudflare runs `npm run build` → publishes `dist/` →
@@ -224,10 +224,10 @@ Tim also owns `dorothysdishesband.com`; it is unused and deliberately left off
 Cloudflare. Tim's other domains in that GoDaddy account are not band business.
 Leave them alone.)
 
-**Formspree** — `forms.bookingEndpoint` and `forms.dishListEndpoint` in
-content.json are both empty. Until filled, both forms show a "message us on
-Facebook" button instead, so nothing looks broken on the live site. Free tier
-is 50 submissions/month.
+**Booking wording** — the band doesn't play weddings and plays few covers, so
+weddings are gone from the booking page, its link previews, the home page's
+booking line and the event-type list (24 Nov 2026). Bars are listed last on
+purpose. Don't add weddings back.
 
 **Bandsintown** — not set up. Once dates are entered there, flip
 `shows.useBandsintown` to `true` and the hand-typed list is ignored.
