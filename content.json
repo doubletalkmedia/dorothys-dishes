@@ -49,8 +49,8 @@
     "appleMusic": "https://music.apple.com/us/artist/dorothys-dishes/1610246339"
   },
   "forms": {
-    "bookingEndpoint": "",
-    "dishListEndpoint": ""
+    "bookingEndpoint": "https://formspree.io/f/mdegyveq",
+    "dishListEndpoint": "https://formspree.io/f/maeoazow"
   },
   "hero": {
     "line1": "Dorothy's",
