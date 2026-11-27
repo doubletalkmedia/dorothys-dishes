@@ -203,6 +203,32 @@ you can make the commit yourself through github.com's upload page, but only
 after he says to. Show him the change first, upload, commit, then check the
 live site.
 
+**Committing through Chrome, the tricks that work (Nov 2026):**
+- The chat must be in automatic approval mode for file uploads; Dan
+  switches it. The upload tool also needs the page's origin,
+  `https://github.com`.
+- Upload page for the top folder: `github.com/doubletalkmedia/dorothys-dishes/upload/main`;
+  for a subfolder add it, e.g. `/upload/main/images`. One commit per folder.
+- Wait until every uploaded filename shows in the list before typing the
+  commit message. If GitHub says "Commit failed", go back to the upload page
+  and redo it; nothing is lost.
+- Dotfiles (`.pages.yml`) can't be uploaded. Open the file's edit page
+  (`/edit/main/.pages.yml`) and replace the editor's contents instead.
+- After committing, clone the repo fresh and diff it against your copy, then
+  check the live site in Chrome. The sandbox can't reach dorothysdishes.com,
+  so a shell `curl` of the site always fails; that isn't an outage.
+- Before any step that triggers a Chrome permission prompt, describe it to
+  Dan in plain words and wait for his OK. Never type passwords; he signs in
+  himself. Nothing involving his DHHS job is done through Chrome.
+
+**Search engines (Nov 2026):** Google Search Console is set up as a domain
+property under danielpetersen813@gmail.com, verified by a TXT record in
+Cloudflare DNS (`google-site-verification=…`). **Don't delete that record.**
+The sitemap is submitted, and indexing was requested for / and /christmas.
+Not yet done, offered to Dan: request indexing for /booking and
+/focus-group, turn on Cloudflare Crawler Hints, import the site into Bing
+Webmaster Tools.
+
 **You can read the live site** with a web fetch, but only once the URL has been
 pasted into the conversation (a permission requirement).
 
