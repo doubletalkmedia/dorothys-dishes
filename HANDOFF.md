@@ -4,7 +4,7 @@
 Everything you need is in this repository. Nothing is tied to the conversation
 that built the site.
 
-Last verified: 21 November 2026. Accent changed to maroon, Christmas concert page added, Donald's Don'ts hidden.
+Last verified: 27 November 2026. Since the 21st: build step and sitemap, DD monogram favicon, Formspree forms with a spam trap, weddings removed from booking.
 
 ---
 
@@ -48,7 +48,9 @@ things.
 
 ## 3. How the site is built
 
-Deliberately plain: HTML, CSS, one JS file. No framework, no build, no npm.
+Deliberately plain: HTML, CSS, one JS file. No framework. The one exception is a small
+build step: on each commit, Cloudflare runs `build.mjs`, which pre-renders the pages
+for search engines (see §1).
 
 ```
 content.json        ← ALL words, shows, photos, links. The only content file.
